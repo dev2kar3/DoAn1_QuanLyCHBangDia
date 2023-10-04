@@ -1,4 +1,6 @@
-﻿namespace QuanLyCHChoThueBangDia
+﻿using System.Data.SqlClient;
+
+namespace QuanLyCHChoThueBangDia
 {
     public partial class fLogin : Form
     {

@@ -17,3 +17,4 @@ C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\Q
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\ref\QuanLyCHChoThueBangDia.dll
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fTableManager.resources
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.Properties.Resources.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fRegister.resources

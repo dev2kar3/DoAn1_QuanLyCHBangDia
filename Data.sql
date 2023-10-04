@@ -58,11 +58,13 @@ create table Bill -- Thông tin 1 loại đĩa được thuê
 (
 	id int identity primary key,
 	idCd int not null,
+	idCustomer int not null,
 	cdStatus nvarchar (30),									-- Khi đĩa được trả lại bị cũ hỏng hóc cần tăng tiền
 	quantity int not null,
 	borrowDay int not null,
 
-	foreign key (idCd) references dbo.CompactDisc(id)
+	foreign key (idCd) references dbo.CompactDisc(id),
+	foreign key (idCustomer) references dbo.memberInfo
 )
 go
 

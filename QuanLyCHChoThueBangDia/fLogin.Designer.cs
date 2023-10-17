@@ -134,6 +134,8 @@
             ClientSize = new Size(410, 229);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(432, 285);
+            MinimumSize = new Size(432, 285);
             Name = "fLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = " Đăng Nhập";

@@ -18,3 +18,6 @@ C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\r
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fTableManager.resources
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.Properties.Resources.resources
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fRegister.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fAccountManager.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fCDManager.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.Form1.resources

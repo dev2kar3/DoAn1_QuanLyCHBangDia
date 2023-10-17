@@ -62,9 +62,8 @@ namespace QuanLyCHChoThueBangDia
         #region accountSubmenu
         private void button_accountRegistration_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fRegister f = new fRegister();
+            f.ShowDialog();
             hideSubmenu();
         }
 
@@ -103,9 +102,8 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_cdManagement_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fCDManager f = new fCDManager();
+            f.ShowDialog();
             hideSubmenu();
         }
 
@@ -187,10 +185,7 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_exitTableManager_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
-            hideSubmenu();
+            this.Close();
         }
 
         #region contactInteraction

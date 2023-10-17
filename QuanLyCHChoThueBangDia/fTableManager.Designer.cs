@@ -54,9 +54,7 @@
             button_accountRegistration = new Button();
             button_account = new Button();
             panel_logo = new Panel();
-            logo3 = new Label();
-            logo2 = new Label();
-            logo = new Label();
+            pb_logo = new PictureBox();
             panel_cover = new Panel();
             panel_pictureGUI = new Panel();
             label15 = new Label();
@@ -84,19 +82,18 @@
             pictureBox5 = new PictureBox();
             pictureBox6 = new PictureBox();
             panel2 = new Panel();
+            logo_addressStore = new Label();
             picture_fbContact = new PictureBox();
             picture_insContact = new PictureBox();
             label6 = new Label();
-            label_recommend = new Label();
             label7 = new Label();
             label8 = new Label();
-            panel1 = new Panel();
+            panel_welcome = new Panel();
+            label_recommend = new Label();
             label_role = new Label();
             label_user = new Label();
             label2 = new Label();
             label1 = new Label();
-            panel222 = new Panel();
-            logo4 = new Label();
             linkLabel_contactInstagram = new LinkLabel();
             linkLabel_contactFB = new LinkLabel();
             panel_slice.SuspendLayout();
@@ -105,6 +102,7 @@
             panel_cdSubMenu.SuspendLayout();
             panel_accountSubMenu.SuspendLayout();
             panel_logo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_logo).BeginInit();
             panel_cover.SuspendLayout();
             panel_pictureGUI.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
@@ -122,8 +120,7 @@
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picture_fbContact).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picture_insContact).BeginInit();
-            panel1.SuspendLayout();
-            panel222.SuspendLayout();
+            panel_welcome.SuspendLayout();
             SuspendLayout();
             // 
             // linkLabel_contactInstagram
@@ -152,6 +149,7 @@
             // 
             // panel_slice
             // 
+            panel_slice.AutoScroll = true;
             panel_slice.BackColor = SystemColors.ActiveCaption;
             panel_slice.BorderStyle = BorderStyle.FixedSingle;
             panel_slice.Controls.Add(button_exitTableManager);
@@ -176,10 +174,10 @@
             button_exitTableManager.FlatAppearance.BorderSize = 0;
             button_exitTableManager.FlatStyle = FlatStyle.Flat;
             button_exitTableManager.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_exitTableManager.Location = new Point(0, 1121);
+            button_exitTableManager.Location = new Point(0, 1146);
             button_exitTableManager.Name = "button_exitTableManager";
             button_exitTableManager.Padding = new Padding(10, 0, 0, 0);
-            button_exitTableManager.Size = new Size(307, 60);
+            button_exitTableManager.Size = new Size(281, 60);
             button_exitTableManager.TabIndex = 9;
             button_exitTableManager.Text = "Thoát";
             button_exitTableManager.TextAlign = ContentAlignment.MiddleLeft;
@@ -193,9 +191,9 @@
             panel_paymentSubMenu.Controls.Add(button_paymentBill);
             panel_paymentSubMenu.Controls.Add(button_paymentCheckCD);
             panel_paymentSubMenu.Dock = DockStyle.Top;
-            panel_paymentSubMenu.Location = new Point(0, 935);
+            panel_paymentSubMenu.Location = new Point(0, 960);
             panel_paymentSubMenu.Name = "panel_paymentSubMenu";
-            panel_paymentSubMenu.Size = new Size(307, 186);
+            panel_paymentSubMenu.Size = new Size(281, 186);
             panel_paymentSubMenu.TabIndex = 8;
             // 
             // button_paymentPrint
@@ -207,7 +205,7 @@
             button_paymentPrint.Location = new Point(0, 120);
             button_paymentPrint.Name = "button_paymentPrint";
             button_paymentPrint.Padding = new Padding(35, 0, 0, 0);
-            button_paymentPrint.Size = new Size(307, 60);
+            button_paymentPrint.Size = new Size(281, 60);
             button_paymentPrint.TabIndex = 2;
             button_paymentPrint.Text = "In";
             button_paymentPrint.TextAlign = ContentAlignment.MiddleLeft;
@@ -223,7 +221,7 @@
             button_paymentBill.Location = new Point(0, 60);
             button_paymentBill.Name = "button_paymentBill";
             button_paymentBill.Padding = new Padding(35, 0, 0, 0);
-            button_paymentBill.Size = new Size(307, 60);
+            button_paymentBill.Size = new Size(281, 60);
             button_paymentBill.TabIndex = 1;
             button_paymentBill.Text = "Phiếu Thu Tiền";
             button_paymentBill.TextAlign = ContentAlignment.MiddleLeft;
@@ -239,7 +237,7 @@
             button_paymentCheckCD.Location = new Point(0, 0);
             button_paymentCheckCD.Name = "button_paymentCheckCD";
             button_paymentCheckCD.Padding = new Padding(35, 0, 0, 0);
-            button_paymentCheckCD.Size = new Size(307, 60);
+            button_paymentCheckCD.Size = new Size(281, 60);
             button_paymentCheckCD.TabIndex = 0;
             button_paymentCheckCD.Text = "Kiểm Tra Đĩa";
             button_paymentCheckCD.TextAlign = ContentAlignment.MiddleLeft;
@@ -252,10 +250,10 @@
             button_payment.FlatAppearance.BorderSize = 0;
             button_payment.FlatStyle = FlatStyle.Flat;
             button_payment.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_payment.Location = new Point(0, 875);
+            button_payment.Location = new Point(0, 900);
             button_payment.Name = "button_payment";
             button_payment.Padding = new Padding(10, 0, 0, 0);
-            button_payment.Size = new Size(307, 60);
+            button_payment.Size = new Size(281, 60);
             button_payment.TabIndex = 7;
             button_payment.Text = "Thanh Toán";
             button_payment.TextAlign = ContentAlignment.MiddleLeft;
@@ -269,9 +267,9 @@
             panel_rentalSubMenu.Controls.Add(button_forRental);
             panel_rentalSubMenu.Controls.Add(button_accountCheck);
             panel_rentalSubMenu.Dock = DockStyle.Top;
-            panel_rentalSubMenu.Location = new Point(0, 689);
+            panel_rentalSubMenu.Location = new Point(0, 714);
             panel_rentalSubMenu.Name = "panel_rentalSubMenu";
-            panel_rentalSubMenu.Size = new Size(307, 186);
+            panel_rentalSubMenu.Size = new Size(281, 186);
             panel_rentalSubMenu.TabIndex = 6;
             // 
             // button_rentalPrint
@@ -283,7 +281,7 @@
             button_rentalPrint.Location = new Point(0, 120);
             button_rentalPrint.Name = "button_rentalPrint";
             button_rentalPrint.Padding = new Padding(35, 0, 0, 0);
-            button_rentalPrint.Size = new Size(307, 60);
+            button_rentalPrint.Size = new Size(281, 60);
             button_rentalPrint.TabIndex = 2;
             button_rentalPrint.Text = "In";
             button_rentalPrint.TextAlign = ContentAlignment.MiddleLeft;
@@ -299,7 +297,7 @@
             button_forRental.Location = new Point(0, 60);
             button_forRental.Name = "button_forRental";
             button_forRental.Padding = new Padding(35, 0, 0, 0);
-            button_forRental.Size = new Size(307, 60);
+            button_forRental.Size = new Size(281, 60);
             button_forRental.TabIndex = 1;
             button_forRental.Text = "Cho Thuê";
             button_forRental.TextAlign = ContentAlignment.MiddleLeft;
@@ -315,7 +313,7 @@
             button_accountCheck.Location = new Point(0, 0);
             button_accountCheck.Name = "button_accountCheck";
             button_accountCheck.Padding = new Padding(35, 0, 0, 0);
-            button_accountCheck.Size = new Size(307, 60);
+            button_accountCheck.Size = new Size(281, 60);
             button_accountCheck.TabIndex = 0;
             button_accountCheck.Text = "Kiểm Tra Tài Khoản";
             button_accountCheck.TextAlign = ContentAlignment.MiddleLeft;
@@ -328,10 +326,10 @@
             button_rental.FlatAppearance.BorderSize = 0;
             button_rental.FlatStyle = FlatStyle.Flat;
             button_rental.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_rental.Location = new Point(0, 629);
+            button_rental.Location = new Point(0, 654);
             button_rental.Name = "button_rental";
             button_rental.Padding = new Padding(10, 0, 0, 0);
-            button_rental.Size = new Size(307, 60);
+            button_rental.Size = new Size(281, 60);
             button_rental.TabIndex = 5;
             button_rental.Text = "Cho Thuê";
             button_rental.TextAlign = ContentAlignment.MiddleLeft;
@@ -345,9 +343,9 @@
             panel_cdSubMenu.Controls.Add(button_cdManagement);
             panel_cdSubMenu.Controls.Add(button_cdImport);
             panel_cdSubMenu.Dock = DockStyle.Top;
-            panel_cdSubMenu.Location = new Point(0, 443);
+            panel_cdSubMenu.Location = new Point(0, 468);
             panel_cdSubMenu.Name = "panel_cdSubMenu";
-            panel_cdSubMenu.Size = new Size(307, 186);
+            panel_cdSubMenu.Size = new Size(281, 186);
             panel_cdSubMenu.TabIndex = 4;
             // 
             // button_cdPrint
@@ -359,7 +357,7 @@
             button_cdPrint.Location = new Point(0, 120);
             button_cdPrint.Name = "button_cdPrint";
             button_cdPrint.Padding = new Padding(35, 0, 0, 0);
-            button_cdPrint.Size = new Size(307, 60);
+            button_cdPrint.Size = new Size(281, 60);
             button_cdPrint.TabIndex = 2;
             button_cdPrint.Text = "In";
             button_cdPrint.TextAlign = ContentAlignment.MiddleLeft;
@@ -375,7 +373,7 @@
             button_cdManagement.Location = new Point(0, 60);
             button_cdManagement.Name = "button_cdManagement";
             button_cdManagement.Padding = new Padding(35, 0, 0, 0);
-            button_cdManagement.Size = new Size(307, 60);
+            button_cdManagement.Size = new Size(281, 60);
             button_cdManagement.TabIndex = 1;
             button_cdManagement.Text = "Quản Lý";
             button_cdManagement.TextAlign = ContentAlignment.MiddleLeft;
@@ -391,7 +389,7 @@
             button_cdImport.Location = new Point(0, 0);
             button_cdImport.Name = "button_cdImport";
             button_cdImport.Padding = new Padding(35, 0, 0, 0);
-            button_cdImport.Size = new Size(307, 60);
+            button_cdImport.Size = new Size(281, 60);
             button_cdImport.TabIndex = 0;
             button_cdImport.Text = "Nhập Đĩa";
             button_cdImport.TextAlign = ContentAlignment.MiddleLeft;
@@ -404,10 +402,10 @@
             button_cd.FlatAppearance.BorderSize = 0;
             button_cd.FlatStyle = FlatStyle.Flat;
             button_cd.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_cd.Location = new Point(0, 383);
+            button_cd.Location = new Point(0, 408);
             button_cd.Name = "button_cd";
             button_cd.Padding = new Padding(10, 0, 0, 0);
-            button_cd.Size = new Size(307, 60);
+            button_cd.Size = new Size(281, 60);
             button_cd.TabIndex = 3;
             button_cd.Text = "Băng Đĩa";
             button_cd.TextAlign = ContentAlignment.MiddleLeft;
@@ -421,9 +419,9 @@
             panel_accountSubMenu.Controls.Add(button_accountManagement);
             panel_accountSubMenu.Controls.Add(button_accountRegistration);
             panel_accountSubMenu.Dock = DockStyle.Top;
-            panel_accountSubMenu.Location = new Point(0, 197);
+            panel_accountSubMenu.Location = new Point(0, 222);
             panel_accountSubMenu.Name = "panel_accountSubMenu";
-            panel_accountSubMenu.Size = new Size(307, 186);
+            panel_accountSubMenu.Size = new Size(281, 186);
             panel_accountSubMenu.TabIndex = 2;
             // 
             // button_accountPrint
@@ -435,7 +433,7 @@
             button_accountPrint.Location = new Point(0, 120);
             button_accountPrint.Name = "button_accountPrint";
             button_accountPrint.Padding = new Padding(35, 0, 0, 0);
-            button_accountPrint.Size = new Size(307, 60);
+            button_accountPrint.Size = new Size(281, 60);
             button_accountPrint.TabIndex = 2;
             button_accountPrint.Text = "In";
             button_accountPrint.TextAlign = ContentAlignment.MiddleLeft;
@@ -451,7 +449,7 @@
             button_accountManagement.Location = new Point(0, 60);
             button_accountManagement.Name = "button_accountManagement";
             button_accountManagement.Padding = new Padding(35, 0, 0, 0);
-            button_accountManagement.Size = new Size(307, 60);
+            button_accountManagement.Size = new Size(281, 60);
             button_accountManagement.TabIndex = 1;
             button_accountManagement.Text = "Quản Lý";
             button_accountManagement.TextAlign = ContentAlignment.MiddleLeft;
@@ -467,7 +465,7 @@
             button_accountRegistration.Location = new Point(0, 0);
             button_accountRegistration.Name = "button_accountRegistration";
             button_accountRegistration.Padding = new Padding(35, 0, 0, 0);
-            button_accountRegistration.Size = new Size(307, 60);
+            button_accountRegistration.Size = new Size(281, 60);
             button_accountRegistration.TabIndex = 0;
             button_accountRegistration.Text = "Đăng Ký";
             button_accountRegistration.TextAlign = ContentAlignment.MiddleLeft;
@@ -480,10 +478,10 @@
             button_account.FlatAppearance.BorderSize = 0;
             button_account.FlatStyle = FlatStyle.Flat;
             button_account.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_account.Location = new Point(0, 137);
+            button_account.Location = new Point(0, 158);
             button_account.Name = "button_account";
             button_account.Padding = new Padding(10, 0, 0, 0);
-            button_account.Size = new Size(307, 60);
+            button_account.Size = new Size(281, 64);
             button_account.TabIndex = 1;
             button_account.Text = "Tài Khoản";
             button_account.TextAlign = ContentAlignment.MiddleLeft;
@@ -492,52 +490,29 @@
             // 
             // panel_logo
             // 
-            panel_logo.Controls.Add(logo3);
-            panel_logo.Controls.Add(logo2);
-            panel_logo.Controls.Add(logo);
+            panel_logo.Controls.Add(pb_logo);
             panel_logo.Dock = DockStyle.Top;
             panel_logo.Location = new Point(0, 0);
             panel_logo.Name = "panel_logo";
-            panel_logo.Size = new Size(307, 137);
+            panel_logo.Size = new Size(281, 158);
             panel_logo.TabIndex = 0;
             // 
-            // logo3
+            // pb_logo
             // 
-            logo3.AutoSize = true;
-            logo3.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            logo3.Location = new Point(68, 105);
-            logo3.Name = "logo3";
-            logo3.Size = new Size(183, 28);
-            logo3.TabIndex = 3;
-            logo3.Text = "Totem Records";
-            // 
-            // logo2
-            // 
-            logo2.AutoSize = true;
-            logo2.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            logo2.Location = new Point(12, 70);
-            logo2.Name = "logo2";
-            logo2.Size = new Size(188, 28);
-            logo2.TabIndex = 2;
-            logo2.Text = "Welcome From";
-            // 
-            // logo
-            // 
-            logo.AutoSize = true;
-            logo.Font = new Font("Goudy Stout", 26F, FontStyle.Bold, GraphicsUnit.Point);
-            logo.Location = new Point(85, 0);
-            logo.Name = "logo";
-            logo.Size = new Size(99, 71);
-            logo.TabIndex = 1;
-            logo.Text = "T";
+            pb_logo.Image = (Image)resources.GetObject("pb_logo.Image");
+            pb_logo.Location = new Point(-1, -7);
+            pb_logo.Name = "pb_logo";
+            pb_logo.Size = new Size(309, 172);
+            pb_logo.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb_logo.TabIndex = 0;
+            pb_logo.TabStop = false;
             // 
             // panel_cover
             // 
             panel_cover.BackColor = SystemColors.ControlLight;
             panel_cover.Controls.Add(panel_pictureGUI);
             panel_cover.Controls.Add(panel2);
-            panel_cover.Controls.Add(panel1);
-            panel_cover.Controls.Add(panel222);
+            panel_cover.Controls.Add(panel_welcome);
             panel_cover.Dock = DockStyle.Fill;
             panel_cover.Location = new Point(309, 0);
             panel_cover.Name = "panel_cover";
@@ -571,9 +546,9 @@
             panel_pictureGUI.Controls.Add(pictureBox4);
             panel_pictureGUI.Controls.Add(pictureBox5);
             panel_pictureGUI.Controls.Add(pictureBox6);
-            panel_pictureGUI.Location = new Point(0, 157);
+            panel_pictureGUI.Location = new Point(0, 86);
             panel_pictureGUI.Name = "panel_pictureGUI";
-            panel_pictureGUI.Size = new Size(1032, 554);
+            panel_pictureGUI.Size = new Size(1032, 625);
             panel_pictureGUI.TabIndex = 3;
             // 
             // label15
@@ -831,12 +806,12 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ActiveCaption;
+            panel2.Controls.Add(logo_addressStore);
             panel2.Controls.Add(linkLabel_contactFB);
             panel2.Controls.Add(picture_fbContact);
             panel2.Controls.Add(linkLabel_contactInstagram);
             panel2.Controls.Add(picture_insContact);
             panel2.Controls.Add(label6);
-            panel2.Controls.Add(label_recommend);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label8);
             panel2.Dock = DockStyle.Bottom;
@@ -845,6 +820,17 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(1035, 80);
             panel2.TabIndex = 2;
+            // 
+            // logo_addressStore
+            // 
+            logo_addressStore.AutoSize = true;
+            logo_addressStore.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            logo_addressStore.ForeColor = Color.MistyRose;
+            logo_addressStore.Location = new Point(16, 13);
+            logo_addressStore.Name = "logo_addressStore";
+            logo_addressStore.Size = new Size(524, 56);
+            logo_addressStore.TabIndex = 0;
+            logo_addressStore.Text = "SN 11 hẻm 14, Ngách 40 Ng. 79 Đ. Cầu Giấy,\r\n Yên Hoà, Cầu Giấy, Hà Nội\r\n";
             // 
             // picture_fbContact
             // 
@@ -876,18 +862,6 @@
             label6.TabIndex = 14;
             label6.Text = "Clockwork Orange";
             // 
-            // label_recommend
-            // 
-            label_recommend.AutoSize = true;
-            label_recommend.BackColor = Color.Transparent;
-            label_recommend.Font = new Font("Century Gothic", 20F, FontStyle.Bold, GraphicsUnit.Point);
-            label_recommend.ForeColor = Color.FromArgb(255, 224, 192);
-            label_recommend.Location = new Point(36, 18);
-            label_recommend.Name = "label_recommend";
-            label_recommend.Size = new Size(190, 47);
-            label_recommend.TabIndex = 1;
-            label_recommend.Text = "Phim Hot";
-            // 
             // label7
             // 
             label7.AutoSize = true;
@@ -908,18 +882,31 @@
             label8.TabIndex = 12;
             label8.Text = "American Psycho";
             // 
-            // panel1
+            // panel_welcome
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.Controls.Add(label_role);
-            panel1.Controls.Add(label_user);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 71);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1035, 80);
-            panel1.TabIndex = 1;
+            panel_welcome.BackColor = SystemColors.ActiveCaption;
+            panel_welcome.Controls.Add(label_recommend);
+            panel_welcome.Controls.Add(label_role);
+            panel_welcome.Controls.Add(label_user);
+            panel_welcome.Controls.Add(label2);
+            panel_welcome.Controls.Add(label1);
+            panel_welcome.Dock = DockStyle.Top;
+            panel_welcome.Location = new Point(0, 0);
+            panel_welcome.Name = "panel_welcome";
+            panel_welcome.Size = new Size(1035, 80);
+            panel_welcome.TabIndex = 1;
+            // 
+            // label_recommend
+            // 
+            label_recommend.AutoSize = true;
+            label_recommend.BackColor = Color.Transparent;
+            label_recommend.Font = new Font("Century Gothic", 20F, FontStyle.Bold, GraphicsUnit.Point);
+            label_recommend.ForeColor = Color.FromArgb(255, 224, 192);
+            label_recommend.Location = new Point(753, 20);
+            label_recommend.Name = "label_recommend";
+            label_recommend.Size = new Size(190, 47);
+            label_recommend.TabIndex = 1;
+            label_recommend.Text = "Phim Hot";
             // 
             // label_role
             // 
@@ -957,27 +944,6 @@
             label1.TabIndex = 0;
             label1.Text = "Welcome :";
             // 
-            // panel222
-            // 
-            panel222.BackColor = SystemColors.ControlLight;
-            panel222.Controls.Add(logo4);
-            panel222.Dock = DockStyle.Top;
-            panel222.Location = new Point(0, 0);
-            panel222.Name = "panel222";
-            panel222.Size = new Size(1035, 71);
-            panel222.TabIndex = 0;
-            // 
-            // logo4
-            // 
-            logo4.AutoSize = true;
-            logo4.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            logo4.ForeColor = Color.RosyBrown;
-            logo4.Location = new Point(26, 21);
-            logo4.Name = "logo4";
-            logo4.Size = new Size(514, 28);
-            logo4.TabIndex = 0;
-            logo4.Text = "Totem Records video rental store, Viet Nam";
-            // 
             // fTableManager
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -998,7 +964,7 @@
             panel_cdSubMenu.ResumeLayout(false);
             panel_accountSubMenu.ResumeLayout(false);
             panel_logo.ResumeLayout(false);
-            panel_logo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pb_logo).EndInit();
             panel_cover.ResumeLayout(false);
             panel_pictureGUI.ResumeLayout(false);
             panel_pictureGUI.PerformLayout();
@@ -1018,10 +984,8 @@
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picture_fbContact).EndInit();
             ((System.ComponentModel.ISupportInitialize)picture_insContact).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel222.ResumeLayout(false);
-            panel222.PerformLayout();
+            panel_welcome.ResumeLayout(false);
+            panel_welcome.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1050,17 +1014,13 @@
         private Button button_payment;
         private Button button_cdManagement;
         private Button button_exitTableManager;
-        private Label logo;
-        private Label logo3;
-        private Label logo2;
         private Panel panel_cover;
-        private Panel panel1;
-        private Panel panel222;
+        private Panel panel_welcome;
         private Label label_role;
         private Label label_user;
         private Label label2;
         private Label label1;
-        private Label logo4;
+        private Label logo_addressStore;
         private Panel panel2;
         private Label label_recommend;
         private Label label6;
@@ -1093,5 +1053,6 @@
         private PictureBox pictureBox12;
         private PictureBox picture_insContact;
         private PictureBox picture_fbContact;
+        private PictureBox pb_logo;
     }
 }

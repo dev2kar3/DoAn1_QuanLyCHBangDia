@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAccountManager));
             tp_delete = new TabPage();
-            panel1 = new Panel();
-            dtgv_CD = new DataGridView();
+            panel_viewControl = new Panel();
+            dtgv_member = new DataGridView();
             tp_edit = new TabPage();
             txb_identifyNumber = new TextBox();
             label_price = new Label();
@@ -45,8 +46,8 @@
             txb_search = new TextBox();
             button_search = new Button();
             tc_manager = new TabControl();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgv_CD).BeginInit();
+            panel_viewControl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dtgv_member).BeginInit();
             tp_viewCD.SuspendLayout();
             panel_searchSlice.SuspendLayout();
             tc_manager.SuspendLayout();
@@ -59,36 +60,38 @@
             tp_delete.Location = new Point(4, 34);
             tp_delete.Name = "tp_delete";
             tp_delete.Padding = new Padding(3);
-            tp_delete.Size = new Size(1048, 563);
+            tp_delete.Size = new Size(1290, 705);
             tp_delete.TabIndex = 2;
             tp_delete.Text = "Xóa";
             // 
-            // panel1
+            // panel_viewControl
             // 
-            panel1.BackColor = SystemColors.ControlLight;
-            panel1.Controls.Add(dtgv_CD);
-            panel1.Location = new Point(3, 3);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(731, 557);
-            panel1.TabIndex = 0;
+            panel_viewControl.BackColor = SystemColors.ControlLight;
+            panel_viewControl.Controls.Add(dtgv_member);
+            panel_viewControl.Location = new Point(3, 3);
+            panel_viewControl.Name = "panel_viewControl";
+            panel_viewControl.Size = new Size(974, 699);
+            panel_viewControl.TabIndex = 0;
             // 
-            // dtgv_CD
+            // dtgv_member
             // 
-            dtgv_CD.BackgroundColor = SystemColors.ControlLight;
-            dtgv_CD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgv_CD.Location = new Point(3, 3);
-            dtgv_CD.Name = "dtgv_CD";
-            dtgv_CD.RowHeadersWidth = 62;
-            dtgv_CD.RowTemplate.Height = 33;
-            dtgv_CD.Size = new Size(725, 551);
-            dtgv_CD.TabIndex = 0;
+            dtgv_member.AllowUserToAddRows = false;
+            dtgv_member.AllowUserToDeleteRows = false;
+            dtgv_member.BackgroundColor = SystemColors.ControlLight;
+            dtgv_member.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgv_member.Location = new Point(3, 3);
+            dtgv_member.Name = "dtgv_member";
+            dtgv_member.RowHeadersWidth = 62;
+            dtgv_member.RowTemplate.Height = 33;
+            dtgv_member.Size = new Size(968, 693);
+            dtgv_member.TabIndex = 0;
             // 
             // tp_edit
             // 
             tp_edit.Location = new Point(4, 34);
             tp_edit.Name = "tp_edit";
             tp_edit.Padding = new Padding(3);
-            tp_edit.Size = new Size(1048, 563);
+            tp_edit.Size = new Size(1290, 705);
             tp_edit.TabIndex = 1;
             tp_edit.Text = "Sửa";
             tp_edit.UseVisualStyleBackColor = true;
@@ -136,12 +139,12 @@
             // 
             tp_viewCD.BackColor = Color.Transparent;
             tp_viewCD.Controls.Add(panel_searchSlice);
-            tp_viewCD.Controls.Add(panel1);
+            tp_viewCD.Controls.Add(panel_viewControl);
             tp_viewCD.Font = new Font("Century Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point);
             tp_viewCD.Location = new Point(4, 34);
             tp_viewCD.Margin = new Padding(0);
             tp_viewCD.Name = "tp_viewCD";
-            tp_viewCD.Size = new Size(1048, 563);
+            tp_viewCD.Size = new Size(1290, 705);
             tp_viewCD.TabIndex = 0;
             tp_viewCD.Text = "Xem ";
             // 
@@ -158,9 +161,9 @@
             panel_searchSlice.Controls.Add(label_idMember);
             panel_searchSlice.Controls.Add(txb_search);
             panel_searchSlice.Controls.Add(button_search);
-            panel_searchSlice.Location = new Point(740, 5);
+            panel_searchSlice.Location = new Point(983, 3);
             panel_searchSlice.Name = "panel_searchSlice";
-            panel_searchSlice.Size = new Size(300, 555);
+            panel_searchSlice.Size = new Size(304, 696);
             panel_searchSlice.TabIndex = 1;
             // 
             // label_memberName
@@ -215,22 +218,21 @@
             tc_manager.Name = "tc_manager";
             tc_manager.Padding = new Point(0, 0);
             tc_manager.SelectedIndex = 0;
-            tc_manager.Size = new Size(1056, 601);
+            tc_manager.Size = new Size(1298, 743);
             tc_manager.TabIndex = 1;
             // 
             // fAccountManager
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1080, 625);
+            ClientSize = new Size(1319, 764);
             Controls.Add(tc_manager);
-            MaximumSize = new Size(1102, 681);
-            MinimumSize = new Size(1102, 681);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fAccountManager";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "fAccountManager";
-            panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgv_CD).EndInit();
+            Text = "Quản Lý Thành Viên";
+            panel_viewControl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dtgv_member).EndInit();
             tp_viewCD.ResumeLayout(false);
             panel_searchSlice.ResumeLayout(false);
             panel_searchSlice.PerformLayout();
@@ -241,8 +243,7 @@
         #endregion
 
         private TabPage tp_delete;
-        private Panel panel1;
-        private DataGridView dtgv_CD;
+        private Panel panel_viewControl;
         private TabPage tp_edit;
         private TextBox txb_identifyNumber;
         private Label label_price;
@@ -257,5 +258,6 @@
         private TextBox txb_search;
         private Button button_search;
         private TabControl tc_manager;
+        private DataGridView dtgv_member;
     }
 }

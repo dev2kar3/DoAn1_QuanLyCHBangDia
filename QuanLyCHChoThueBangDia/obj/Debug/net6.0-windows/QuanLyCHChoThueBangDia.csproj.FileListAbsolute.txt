@@ -20,4 +20,16 @@ C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\Q
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fRegister.resources
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fAccountManager.resources
 C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fCDManager.resources
-C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.Form1.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fRevenue.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fImportDisc.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fCheckAccount.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fRent.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fBill.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.fSales.resources
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\WORKSPACE\c#\DoAn1_QLCHCTBD\QuanLyCHChoThueBangDia\obj\Debug\net6.0-windows\QuanLyCHChoThueBangDia.csproj.CopyComplete

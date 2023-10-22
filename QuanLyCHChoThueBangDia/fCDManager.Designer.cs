@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fCDManager));
             tc_manager = new TabControl();
             tp_viewCD = new TabPage();
             panel_searchSlice = new Panel();
@@ -42,14 +43,14 @@
             txb_search = new TextBox();
             button_search = new Button();
             panel1 = new Panel();
-            dtgv_CD = new DataGridView();
+            dtgv_cdView = new DataGridView();
             tp_edit = new TabPage();
             tp_delete = new TabPage();
             tc_manager.SuspendLayout();
             tp_viewCD.SuspendLayout();
             panel_searchSlice.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dtgv_CD).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dtgv_cdView).BeginInit();
             SuspendLayout();
             // 
             // tc_manager
@@ -57,12 +58,12 @@
             tc_manager.Controls.Add(tp_viewCD);
             tc_manager.Controls.Add(tp_edit);
             tc_manager.Controls.Add(tp_delete);
-            tc_manager.Location = new Point(12, 12);
+            tc_manager.Location = new Point(9, 12);
             tc_manager.Margin = new Padding(0);
             tc_manager.Name = "tc_manager";
             tc_manager.Padding = new Point(0, 0);
             tc_manager.SelectedIndex = 0;
-            tc_manager.Size = new Size(1056, 601);
+            tc_manager.Size = new Size(1592, 840);
             tc_manager.TabIndex = 0;
             // 
             // tp_viewCD
@@ -74,7 +75,7 @@
             tp_viewCD.Location = new Point(4, 34);
             tp_viewCD.Margin = new Padding(0);
             tp_viewCD.Name = "tp_viewCD";
-            tp_viewCD.Size = new Size(1048, 563);
+            tp_viewCD.Size = new Size(1584, 802);
             tp_viewCD.TabIndex = 0;
             tp_viewCD.Text = "Xem ";
             // 
@@ -91,9 +92,9 @@
             panel_searchSlice.Controls.Add(label_idCategory);
             panel_searchSlice.Controls.Add(txb_search);
             panel_searchSlice.Controls.Add(button_search);
-            panel_searchSlice.Location = new Point(740, 5);
+            panel_searchSlice.Location = new Point(1281, 3);
             panel_searchSlice.Name = "panel_searchSlice";
-            panel_searchSlice.Size = new Size(300, 555);
+            panel_searchSlice.Size = new Size(300, 796);
             panel_searchSlice.TabIndex = 1;
             // 
             // txb_price
@@ -180,29 +181,31 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.ControlLight;
-            panel1.Controls.Add(dtgv_CD);
+            panel1.Controls.Add(dtgv_cdView);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(731, 557);
+            panel1.Size = new Size(1272, 796);
             panel1.TabIndex = 0;
             // 
-            // dtgv_CD
+            // dtgv_cdView
             // 
-            dtgv_CD.BackgroundColor = SystemColors.ControlLight;
-            dtgv_CD.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgv_CD.Location = new Point(3, 3);
-            dtgv_CD.Name = "dtgv_CD";
-            dtgv_CD.RowHeadersWidth = 62;
-            dtgv_CD.RowTemplate.Height = 33;
-            dtgv_CD.Size = new Size(725, 551);
-            dtgv_CD.TabIndex = 0;
+            dtgv_cdView.AllowUserToAddRows = false;
+            dtgv_cdView.AllowUserToDeleteRows = false;
+            dtgv_cdView.BackgroundColor = SystemColors.ControlLight;
+            dtgv_cdView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dtgv_cdView.Location = new Point(3, 3);
+            dtgv_cdView.Name = "dtgv_cdView";
+            dtgv_cdView.RowHeadersWidth = 62;
+            dtgv_cdView.RowTemplate.Height = 33;
+            dtgv_cdView.Size = new Size(1266, 790);
+            dtgv_cdView.TabIndex = 0;
             // 
             // tp_edit
             // 
             tp_edit.Location = new Point(4, 34);
             tp_edit.Name = "tp_edit";
             tp_edit.Padding = new Padding(3);
-            tp_edit.Size = new Size(1048, 563);
+            tp_edit.Size = new Size(1584, 802);
             tp_edit.TabIndex = 1;
             tp_edit.Text = "Sửa";
             tp_edit.UseVisualStyleBackColor = true;
@@ -214,7 +217,7 @@
             tp_delete.Location = new Point(4, 34);
             tp_delete.Name = "tp_delete";
             tp_delete.Padding = new Padding(3);
-            tp_delete.Size = new Size(1048, 563);
+            tp_delete.Size = new Size(1584, 802);
             tp_delete.TabIndex = 2;
             tp_delete.Text = "Xóa";
             // 
@@ -222,20 +225,19 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
-            ClientSize = new Size(1080, 625);
+            BackColor = SystemColors.ControlLightLight;
+            ClientSize = new Size(1610, 861);
             Controls.Add(tc_manager);
-            MaximumSize = new Size(1102, 681);
-            MinimumSize = new Size(1102, 681);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "fCDManager";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "fManagerCD";
+            Text = "Quản Lý Đĩa";
             tc_manager.ResumeLayout(false);
             tp_viewCD.ResumeLayout(false);
             panel_searchSlice.ResumeLayout(false);
             panel_searchSlice.PerformLayout();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dtgv_CD).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dtgv_cdView).EndInit();
             ResumeLayout(false);
         }
 
@@ -257,6 +259,6 @@
         private Label label_category;
         private TextBox txb_cdName;
         private Label label_nameCD;
-        private DataGridView dtgv_CD;
+        private DataGridView dtgv_cdView;
     }
 }

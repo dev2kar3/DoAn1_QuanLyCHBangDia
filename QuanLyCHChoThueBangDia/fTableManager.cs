@@ -69,9 +69,8 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_accountManagement_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fAccountManager f = new fAccountManager();
+            f.ShowDialog();
             hideSubmenu();
         }
 
@@ -94,9 +93,8 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_cdImport_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fImportDisc f = new fImportDisc();
+            f.ShowDialog();
             hideSubmenu();
         }
 
@@ -126,17 +124,19 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_accountCheck_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fCheckAccount f = new fCheckAccount();
+            f.ShowDialog();
             hideSubmenu();
         }
 
         private void button_forRental_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fCDManager fCDManager = new fCDManager();
+            fRent f = new fRent();
+            f.Show();
+            fCDManager.Show();
+            f.Location = new Point(1200, 400);
+            fCDManager.Location = new Point(0, 10); 
             hideSubmenu();
         }
 
@@ -167,21 +167,26 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_paymentBill_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fBill f = new fBill();
+            f.ShowDialog();
             hideSubmenu();
         }
 
         private void button_paymentPrint_Click(object sender, EventArgs e)
         {
-            //...
-            //Code
-            //...
+            fRevenue f = new fRevenue();
+            f.ShowDialog();
             hideSubmenu();
         }
 
         #endregion paymentSubmenu
+
+        private void btn_sales_Click(object sender, EventArgs e)
+        {
+            fSales f = new fSales();
+            f.ShowDialog();
+            hideSubmenu();
+        }
 
         private void button_exitTableManager_Click(object sender, EventArgs e)
         {
@@ -213,6 +218,5 @@ namespace QuanLyCHChoThueBangDia
         }
 
         #endregion contacInteraction
-
     }
 }

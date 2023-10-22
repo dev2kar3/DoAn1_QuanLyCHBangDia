@@ -32,11 +32,11 @@
             LinkLabel linkLabel_contactFB;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fTableManager));
             panel_slice = new Panel();
+            btn_sales = new Button();
             button_exitTableManager = new Button();
             panel_paymentSubMenu = new Panel();
-            button_paymentPrint = new Button();
+            button_revenue = new Button();
             button_paymentBill = new Button();
-            button_paymentCheckCD = new Button();
             button_payment = new Button();
             panel_rentalSubMenu = new Panel();
             button_rentalPrint = new Button();
@@ -152,6 +152,7 @@
             panel_slice.AutoScroll = true;
             panel_slice.BackColor = SystemColors.ActiveCaption;
             panel_slice.BorderStyle = BorderStyle.FixedSingle;
+            panel_slice.Controls.Add(btn_sales);
             panel_slice.Controls.Add(button_exitTableManager);
             panel_slice.Controls.Add(panel_paymentSubMenu);
             panel_slice.Controls.Add(button_payment);
@@ -168,13 +169,29 @@
             panel_slice.Size = new Size(309, 794);
             panel_slice.TabIndex = 0;
             // 
+            // btn_sales
+            // 
+            btn_sales.Dock = DockStyle.Bottom;
+            btn_sales.FlatAppearance.BorderSize = 0;
+            btn_sales.FlatStyle = FlatStyle.Flat;
+            btn_sales.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_sales.Location = new Point(0, 1144);
+            btn_sales.Name = "btn_sales";
+            btn_sales.Padding = new Padding(10, 0, 0, 0);
+            btn_sales.Size = new Size(281, 60);
+            btn_sales.TabIndex = 10;
+            btn_sales.Text = "Ưu Đãi";
+            btn_sales.TextAlign = ContentAlignment.MiddleLeft;
+            btn_sales.UseVisualStyleBackColor = true;
+            btn_sales.Click += btn_sales_Click;
+            // 
             // button_exitTableManager
             // 
             button_exitTableManager.Dock = DockStyle.Top;
             button_exitTableManager.FlatAppearance.BorderSize = 0;
             button_exitTableManager.FlatStyle = FlatStyle.Flat;
             button_exitTableManager.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_exitTableManager.Location = new Point(0, 1146);
+            button_exitTableManager.Location = new Point(0, 1084);
             button_exitTableManager.Name = "button_exitTableManager";
             button_exitTableManager.Padding = new Padding(10, 0, 0, 0);
             button_exitTableManager.Size = new Size(281, 60);
@@ -187,30 +204,29 @@
             // panel_paymentSubMenu
             // 
             panel_paymentSubMenu.BackColor = SystemColors.GradientActiveCaption;
-            panel_paymentSubMenu.Controls.Add(button_paymentPrint);
+            panel_paymentSubMenu.Controls.Add(button_revenue);
             panel_paymentSubMenu.Controls.Add(button_paymentBill);
-            panel_paymentSubMenu.Controls.Add(button_paymentCheckCD);
             panel_paymentSubMenu.Dock = DockStyle.Top;
             panel_paymentSubMenu.Location = new Point(0, 960);
             panel_paymentSubMenu.Name = "panel_paymentSubMenu";
-            panel_paymentSubMenu.Size = new Size(281, 186);
+            panel_paymentSubMenu.Size = new Size(281, 124);
             panel_paymentSubMenu.TabIndex = 8;
             // 
-            // button_paymentPrint
+            // button_revenue
             // 
-            button_paymentPrint.Dock = DockStyle.Top;
-            button_paymentPrint.FlatAppearance.BorderSize = 0;
-            button_paymentPrint.FlatStyle = FlatStyle.Flat;
-            button_paymentPrint.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_paymentPrint.Location = new Point(0, 120);
-            button_paymentPrint.Name = "button_paymentPrint";
-            button_paymentPrint.Padding = new Padding(35, 0, 0, 0);
-            button_paymentPrint.Size = new Size(281, 60);
-            button_paymentPrint.TabIndex = 2;
-            button_paymentPrint.Text = "In";
-            button_paymentPrint.TextAlign = ContentAlignment.MiddleLeft;
-            button_paymentPrint.UseVisualStyleBackColor = true;
-            button_paymentPrint.Click += button_paymentPrint_Click;
+            button_revenue.Dock = DockStyle.Top;
+            button_revenue.FlatAppearance.BorderSize = 0;
+            button_revenue.FlatStyle = FlatStyle.Flat;
+            button_revenue.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button_revenue.Location = new Point(0, 60);
+            button_revenue.Name = "button_revenue";
+            button_revenue.Padding = new Padding(35, 0, 0, 0);
+            button_revenue.Size = new Size(281, 60);
+            button_revenue.TabIndex = 2;
+            button_revenue.Text = "Doanh Thu";
+            button_revenue.TextAlign = ContentAlignment.MiddleLeft;
+            button_revenue.UseVisualStyleBackColor = true;
+            button_revenue.Click += button_paymentPrint_Click;
             // 
             // button_paymentBill
             // 
@@ -218,7 +234,7 @@
             button_paymentBill.FlatAppearance.BorderSize = 0;
             button_paymentBill.FlatStyle = FlatStyle.Flat;
             button_paymentBill.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_paymentBill.Location = new Point(0, 60);
+            button_paymentBill.Location = new Point(0, 0);
             button_paymentBill.Name = "button_paymentBill";
             button_paymentBill.Padding = new Padding(35, 0, 0, 0);
             button_paymentBill.Size = new Size(281, 60);
@@ -227,22 +243,6 @@
             button_paymentBill.TextAlign = ContentAlignment.MiddleLeft;
             button_paymentBill.UseVisualStyleBackColor = true;
             button_paymentBill.Click += button_paymentBill_Click;
-            // 
-            // button_paymentCheckCD
-            // 
-            button_paymentCheckCD.Dock = DockStyle.Top;
-            button_paymentCheckCD.FlatAppearance.BorderSize = 0;
-            button_paymentCheckCD.FlatStyle = FlatStyle.Flat;
-            button_paymentCheckCD.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_paymentCheckCD.Location = new Point(0, 0);
-            button_paymentCheckCD.Name = "button_paymentCheckCD";
-            button_paymentCheckCD.Padding = new Padding(35, 0, 0, 0);
-            button_paymentCheckCD.Size = new Size(281, 60);
-            button_paymentCheckCD.TabIndex = 0;
-            button_paymentCheckCD.Text = "Kiểm Tra Đĩa";
-            button_paymentCheckCD.TextAlign = ContentAlignment.MiddleLeft;
-            button_paymentCheckCD.UseVisualStyleBackColor = true;
-            button_paymentCheckCD.Click += button_paymentCheckCD_Click;
             // 
             // button_payment
             // 
@@ -902,7 +902,7 @@
             label_recommend.BackColor = Color.Transparent;
             label_recommend.Font = new Font("Century Gothic", 20F, FontStyle.Bold, GraphicsUnit.Point);
             label_recommend.ForeColor = Color.FromArgb(255, 224, 192);
-            label_recommend.Location = new Point(753, 20);
+            label_recommend.Location = new Point(833, 20);
             label_recommend.Name = "label_recommend";
             label_recommend.Size = new Size(190, 47);
             label_recommend.TabIndex = 1;
@@ -922,9 +922,9 @@
             label_user.AutoSize = true;
             label_user.Location = new Point(119, 11);
             label_user.Name = "label_user";
-            label_user.Size = new Size(129, 25);
+            label_user.Size = new Size(175, 25);
             label_user.TabIndex = 2;
-            label_user.Text = "Totem Records";
+            label_user.Text = "Hải Hà Media Studio";
             // 
             // label2
             // 
@@ -1008,9 +1008,8 @@
         private Button button_cdPrint;
         private Button button_cdImport;
         private Panel panel_paymentSubMenu;
-        private Button button_paymentPrint;
+        private Button button_revenue;
         private Button button_paymentBill;
-        private Button button_paymentCheckCD;
         private Button button_payment;
         private Button button_cdManagement;
         private Button button_exitTableManager;
@@ -1054,5 +1053,6 @@
         private PictureBox picture_insContact;
         private PictureBox picture_fbContact;
         private PictureBox pb_logo;
+        private Button btn_sales;
     }
 }

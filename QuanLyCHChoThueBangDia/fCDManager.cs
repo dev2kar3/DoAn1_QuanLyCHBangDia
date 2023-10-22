@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCHChoThueBangDia.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace QuanLyCHChoThueBangDia
         public fCDManager()
         {
             InitializeComponent();
+
+            loadCdInfo();
+        }
+
+        void loadCdInfo()
+        {
+            dtgv_cdView.DataSource = cdInfoDAO.Instance.loadCdInfo();
         }
     }
 }

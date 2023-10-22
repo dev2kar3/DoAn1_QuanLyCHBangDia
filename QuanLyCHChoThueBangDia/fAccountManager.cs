@@ -1,7 +1,10 @@
-﻿using System;
+﻿using QuanLyCHChoThueBangDia.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +18,13 @@ namespace QuanLyCHChoThueBangDia
         public fAccountManager()
         {
             InitializeComponent();
+
+            loadMemberInfo();
+        }
+
+        void loadMemberInfo()
+        {
+            dtgv_member.DataSource = memberInfoDAO.Instance.loadMemberInfoList();
         }
     }
 }

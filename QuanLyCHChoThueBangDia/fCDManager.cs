@@ -24,5 +24,10 @@ namespace QuanLyCHChoThueBangDia
         {
             dtgv_cdView.DataSource = cdInfoDAO.Instance.loadCdInfo();
         }
+
+        private void dtgv_cdView_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

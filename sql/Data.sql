@@ -53,26 +53,32 @@ create table CompactDiscCategory
 )
 go
 
-create table Bill -- Thông tin 1 loại đĩa được thuê
+create table Bill -- Bill và iD khách hàng
 (
 	id int identity primary key,
 	idCustomer int not null,
+	dateCheckIn DATE NOT NULL DEFAULT GETDATE(),
+	dateCheckOut DATE NOT NULL
+
 	foreign key (idCustomer) references dbo.memberInfo
 )
-go
+GO
+-- Bill sẽ thêm bớt đĩa được như món ăn ( Mục cho thuê ), sau đó add vào CSDL như add thành viên và đĩa
 
-create table BillInfo -- Thông tin đơn tất cả đĩa của khách hàng đã thuê
+create table BillInfo -- Thông tin của Bill đó
 (
 	id int identity primary key,
 	idBill int not null,
 	idCd int not null,
-	quantity int not null,
-	borrowDay int not null,
+	quantity int not null
 
 	foreign key (idBill) references dbo.Bill(id),
 	foreign key (idCd) references dbo.CompactDisc(id)
 )
-go
+GO
+-- Ý tưởng là cho thuê và add các đĩa vào
+-- Sau đó chuyển sang form thanh toán, nhấn vào là hiện lên listview đĩa tài khoản đó đang thuê
+-- Sau đó thanh toán thì xóa đi là xong
 
 CREATE PROC USP_getAccountByUserName
 @userName NVARCHAR(100)
@@ -93,16 +99,21 @@ GO
 
 CREATE PROC USP_getMemberInfo
 AS
+BEGIN
 	SELECT id AS ID, accountName AS "Thành Viên",
 	gender AS "Giới Tính", phoneNumber AS "Số Phone",
 	userAddress AS "Địa Chỉ", identify AS "Số CCCD"
 	FROM dbo.memberInfo
+END
 GO
 
-CREATE PROC USP_getCdInfo
+CREATE PROC dbo.USP_getCdInfo
 AS
-	SELECT id AS ID, cdName AS "Tên Đĩa", rentalPrice AS "Giá Thuê",
-	quantity AS "Số Lượng", remainCd AS "Còn Lại", productionComp AS "Nhà SX",
-	note AS "Ghi Chú", idCategory AS "Thể Loại"
-	FROM dbo.CompactDisc
+BEGIN
+	SELECT dbo.CompactDisc.id AS ID, cdName AS "Tên Đĩa", rentalPrice AS "Giá Thuê",
+	productionComp AS "Nhà SX",
+	note AS "Ghi Chú", dbo.CompactDiscCategory.cateName AS "Thể Loại"
+	FROM dbo.CompactDisc, dbo.CompactDiscCategory
+	WHERE dbo.CompactDisc.idCategory = dbo.CompactDiscCategory.id
+END
 GO

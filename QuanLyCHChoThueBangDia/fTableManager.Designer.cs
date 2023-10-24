@@ -37,7 +37,7 @@
             panel_paymentSubMenu = new Panel();
             button_revenue = new Button();
             button_paymentBill = new Button();
-            button_payment = new Button();
+            button_report = new Button();
             panel_rentalSubMenu = new Panel();
             button_rentalPrint = new Button();
             button_forRental = new Button();
@@ -155,7 +155,7 @@
             panel_slice.Controls.Add(btn_sales);
             panel_slice.Controls.Add(button_exitTableManager);
             panel_slice.Controls.Add(panel_paymentSubMenu);
-            panel_slice.Controls.Add(button_payment);
+            panel_slice.Controls.Add(button_report);
             panel_slice.Controls.Add(panel_rentalSubMenu);
             panel_slice.Controls.Add(button_rental);
             panel_slice.Controls.Add(panel_cdSubMenu);
@@ -244,21 +244,21 @@
             button_paymentBill.UseVisualStyleBackColor = true;
             button_paymentBill.Click += button_paymentBill_Click;
             // 
-            // button_payment
+            // button_report
             // 
-            button_payment.Dock = DockStyle.Top;
-            button_payment.FlatAppearance.BorderSize = 0;
-            button_payment.FlatStyle = FlatStyle.Flat;
-            button_payment.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            button_payment.Location = new Point(0, 900);
-            button_payment.Name = "button_payment";
-            button_payment.Padding = new Padding(10, 0, 0, 0);
-            button_payment.Size = new Size(281, 60);
-            button_payment.TabIndex = 7;
-            button_payment.Text = "Thanh Toán";
-            button_payment.TextAlign = ContentAlignment.MiddleLeft;
-            button_payment.UseVisualStyleBackColor = true;
-            button_payment.Click += button_payment_Click;
+            button_report.Dock = DockStyle.Top;
+            button_report.FlatAppearance.BorderSize = 0;
+            button_report.FlatStyle = FlatStyle.Flat;
+            button_report.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            button_report.Location = new Point(0, 900);
+            button_report.Name = "button_report";
+            button_report.Padding = new Padding(10, 0, 0, 0);
+            button_report.Size = new Size(281, 60);
+            button_report.TabIndex = 7;
+            button_report.Text = "Báo Cáo";
+            button_report.TextAlign = ContentAlignment.MiddleLeft;
+            button_report.UseVisualStyleBackColor = true;
+            button_report.Click += button_payment_Click;
             // 
             // panel_rentalSubMenu
             // 
@@ -1010,7 +1010,7 @@
         private Panel panel_paymentSubMenu;
         private Button button_revenue;
         private Button button_paymentBill;
-        private Button button_payment;
+        private Button button_report;
         private Button button_cdManagement;
         private Button button_exitTableManager;
         private Panel panel_cover;

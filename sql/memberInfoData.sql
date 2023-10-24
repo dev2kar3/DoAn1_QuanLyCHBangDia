@@ -10,7 +10,7 @@ INSERT INTO dbo.memberInfo
     identify
 )
 VALUES
-(   N'Nguyễn Thành Đại', -- accountName - nvarchar(100)
+(   N'Nguyễn Thành Đạt', -- accountName - nvarchar(100)
     N'Nam', -- gender - nvarchar(5)
     0869257204,   -- phoneNumber - bigint
     N'Hà Nội', -- userAddress - nvarchar(300)
@@ -61,7 +61,7 @@ VALUES
 (   N'Ngô Quang Hiển', -- accountName - nvarchar(100)
     N'Nam', -- gender - nvarchar(5)
     0979479550,   -- phoneNumber - bigint
-    N'', -- userAddress - nvarchar(300)
+    N'Sao Hỏa', -- userAddress - nvarchar(300)
     21103100730    -- identify - bigint
     )
 

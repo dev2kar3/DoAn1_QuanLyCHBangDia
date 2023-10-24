@@ -61,10 +61,10 @@ namespace QuanLyCHChoThueBangDia.DAO
 
                 connection.Close();
 
-                // Tham số truyền vào là 1 query, 1 list para
-                // query sẽ truy vấn đến các thuộc tính được viết theo dạng VD: @userName , @userName , . . . 
-                // listPara có các tham số tương ứng với số thuộc tính trong query,
-                // tham số từ listPara sẽ được add vào command ứng với các thuộc tính từ query
+                // Tham số truyền vào là 1 query, 1 mảng object para chứa userName, passWord
+                // listPara chứa những tham số của thủ tục có dạng @
+                // sau đó vòng foreach sẽ add tham số đó và giá trị trong mảng parameter tương ứng
+                // 
                 // adapter được fill bình thường
             }
             

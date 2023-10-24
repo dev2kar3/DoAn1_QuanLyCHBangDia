@@ -133,10 +133,10 @@ namespace QuanLyCHChoThueBangDia
         {
             fCDManager fCDManager = new fCDManager();
             fRent f = new fRent();
-            f.Show();
             fCDManager.Show();
-            f.Location = new Point(1200, 400);
-            fCDManager.Location = new Point(0, 10); 
+            f.Show();
+            fCDManager.Location = new Point(0, 10);
+            f.Location = new Point(985, 105);
             hideSubmenu();
         }
 

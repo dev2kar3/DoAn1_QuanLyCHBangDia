@@ -111,9 +111,37 @@ CREATE PROC dbo.USP_getCdInfo
 AS
 BEGIN
 	SELECT dbo.CompactDisc.id AS ID, cdName AS "Tên Đĩa", rentalPrice AS "Giá Thuê",
-	productionComp AS "Nhà SX",
+	quantity AS "Số Lượng", productionComp AS "Nhà SX",
 	note AS "Ghi Chú", dbo.CompactDiscCategory.cateName AS "Thể Loại"
 	FROM dbo.CompactDisc, dbo.CompactDiscCategory
 	WHERE dbo.CompactDisc.idCategory = dbo.CompactDiscCategory.id
 END
 GO
+
+CREATE PROC USP_getRentingMemberInfo
+AS
+BEGIN
+	SELECT DISTINCT dbo.memberInfo.id AS "ID", dbo.memberInfo.accountName AS "Họ Tên", 
+	dbo.memberInfo.gender AS "Giới Tính",
+	dbo.memberInfo.identify AS "Số CCCD", dbo.memberInfo.phoneNumber AS "Số Phone"
+	FROM dbo.memberInfo, dbo.Bill, dbo.BillInfo
+	WHERE dbo.memberInfo.id = dbo.Bill.idCustomer AND dbo.Bill.id = dbo.BillInfo.idBill
+END
+GO	
+
+CREATE PROC	USP_getBillMenuList
+@idcustomer INT
+AS
+BEGIN	
+	SELECT cdName AS "Tên Đĩa", cateName AS "Thể Loại", note AS "Tình Trạng",
+	rentalPrice AS "Giá Thuê", BillInfo.quantity AS "Số Lượng", (rentalPrice * BillInfo.quantity) AS "Thành Tiền"
+	FROM dbo.BillInfo, dbo.Bill, dbo.memberInfo, dbo.CompactDisc, dbo.CompactDiscCategory
+	WHERE dbo.BillInfo.idBill = dbo.Bill.id AND dbo.BillInfo.idCd = dbo.CompactDisc.id 
+	AND dbo.CompactDisc.idCategory = dbo.CompactDiscCategory.id AND dbo.Bill.idCustomer = dbo.memberInfo.id
+	AND dbo.Bill.idCustomer = @idcustomer
+END
+GO	
+
+EXEC dbo.USP_getBillMenuList @idcustomer = 1 -- int
+
+

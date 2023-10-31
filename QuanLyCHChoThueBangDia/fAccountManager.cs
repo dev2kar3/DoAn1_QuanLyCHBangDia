@@ -26,5 +26,10 @@ namespace QuanLyCHChoThueBangDia
         {
             dtgv_member.DataSource = memberInfoDAO.Instance.loadMemberInfoList();
         }
+
+        private void fAccountManager_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

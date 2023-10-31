@@ -27,7 +27,7 @@ namespace QuanLyCHChoThueBangDia
 
         private void dtgv_cdView_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿USE QuanLyCuaHangBangDia
 GO	
 
---Cách để 1 bill info chứa nhiều đĩa ? Khả năng là insert nhiều bill info vào chung 1 idBill
+-- BillInfo là thông tin về 1 đĩa nằm trong, 1 BillInfo nằm trong Bill
 
 INSERT INTO dbo.BillInfo
 (
@@ -60,5 +60,41 @@ INSERT INTO dbo.BillInfo
 VALUES
 (   3, -- idBill - int
     5, -- idCd - int
+    1  -- quantity - int
+    )
+
+INSERT INTO dbo.BillInfo
+(
+    idBill,
+    idCd,
+    quantity
+)
+VALUES
+(   4, -- idBill - int
+    6, -- idCd - int
+    5  -- quantity - int
+    )
+
+INSERT INTO dbo.BillInfo
+(
+    idBill,
+    idCd,
+    quantity
+)
+VALUES
+(   5, -- idBill - int
+    7, -- idCd - int
+    1  -- quantity - int
+    )
+
+INSERT INTO dbo.BillInfo
+(
+    idBill,
+    idCd,
+    quantity
+)
+VALUES
+(   6, -- idBill - int
+    11, -- idCd - int
     1  -- quantity - int
     )

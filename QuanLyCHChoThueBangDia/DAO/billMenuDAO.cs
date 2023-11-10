@@ -33,6 +33,7 @@ namespace QuanLyCHChoThueBangDia.DAO
 
             DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] {id});
 
+            //Add từng cái row trong biến data vào listBillMenu
             foreach (DataRow item in data.Rows)
             {
                 billMenu menu = new billMenu(item);

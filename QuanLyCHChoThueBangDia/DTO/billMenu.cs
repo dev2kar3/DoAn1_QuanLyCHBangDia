@@ -9,7 +9,9 @@ namespace QuanLyCHChoThueBangDia.DTO
 {
     internal class billMenu
     {
-        public billMenu(string cdname, int quantity, float rentalprice, string category, string note, float totalprice = 0) 
+        public billMenu(string cdname, int quantity, 
+            float rentalprice, string category, string note,
+            DateTime datecheckin, DateTime datecheckout, float totalprice = 0) 
         {
             this.CdName = cdname;
             this.Quantity = quantity;
@@ -17,6 +19,8 @@ namespace QuanLyCHChoThueBangDia.DTO
             this.Note = note;
             this.RentalPrice = rentalprice;
             this.TotalPrice = totalprice;
+            this.DateCheckIn = datecheckin;
+            this.DateCheckOut = datecheckout;
         }
 
         public billMenu(DataRow row)
@@ -30,6 +34,8 @@ namespace QuanLyCHChoThueBangDia.DTO
             this.Note = row["Tình Trạng"].ToString();
             this.RentalPrice = (float)Convert.ToDouble(row["Giá Thuê"].ToString());
             this.TotalPrice = (float)Convert.ToDouble(row["Thành Tiền"].ToString());
+            this.DateCheckOut = (DateTime)row["Ngày Trả"];
+            this.dateCheckIn = (DateTime)row["Ngày Mượn"];
         }
 
         private string cdName;
@@ -42,6 +48,10 @@ namespace QuanLyCHChoThueBangDia.DTO
 
         private string category;
 
+        private DateTime dateCheckIn;
+
+        private DateTime dateCheckOut;
+
         private string note;
 
         public string CdName { get => cdName; set => cdName = value; }
@@ -50,5 +60,27 @@ namespace QuanLyCHChoThueBangDia.DTO
         public float TotalPrice { get => totalPrice; set => totalPrice = value; }
         public string Category { get => category; set => category = value; }
         public string Note { get => note; set => note = value; }
+        public DateTime DateCheckIn 
+        {
+            get
+            {
+                return dateCheckIn;
+            }
+            set
+            {
+                dateCheckIn = value;
+            }
+        }
+        public DateTime DateCheckOut 
+        { 
+            get
+            {
+                return dateCheckOut;
+            }
+            set
+            {
+                dateCheckOut = value;
+            }
+        }
     }
 }

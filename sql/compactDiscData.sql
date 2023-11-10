@@ -220,3 +220,23 @@ VALUES
     N'Mới',     -- note - nvarchar(300)
     1        -- idCategory - int
     )
+
+INSERT INTO dbo.CompactDisc
+(
+    cdName,
+    rentalPrice,
+    quantity,
+    remainCd,
+    productionComp,
+    note,
+    idCategory
+)
+VALUES
+(   N'Freestyle',     -- cdName - nvarchar(100)
+    8000, -- rentalPrice - float
+    5,       -- quantity - int
+    5,       -- remainCd - int
+    N'Maciej Bochniak',     -- productionComp - nvarchar(300)
+    N'Mới',     -- note - nvarchar(300)
+    4        -- idCategory - int
+    )

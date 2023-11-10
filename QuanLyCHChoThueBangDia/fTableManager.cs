@@ -131,12 +131,8 @@ namespace QuanLyCHChoThueBangDia
 
         private void button_forRental_Click(object sender, EventArgs e)
         {
-            fCDManager fCDManager = new fCDManager();
             fRent f = new fRent();
-            fCDManager.Show();
             f.Show();
-            fCDManager.Location = new Point(0, 10);
-            f.Location = new Point(985, 105);
             hideSubmenu();
         }
 

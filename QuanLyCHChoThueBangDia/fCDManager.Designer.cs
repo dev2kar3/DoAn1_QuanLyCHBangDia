@@ -32,9 +32,6 @@
             tc_manager = new TabControl();
             tp_viewCD = new TabPage();
             panel_searchSlice = new Panel();
-            txb_price = new TextBox();
-            label_price = new Label();
-            txb_categery = new TextBox();
             label_category = new Label();
             txb_cdName = new TextBox();
             label_nameCD = new Label();
@@ -44,6 +41,7 @@
             button_search = new Button();
             panel1 = new Panel();
             dtgv_cdView = new DataGridView();
+            cb_category = new ComboBox();
             tc_manager.SuspendLayout();
             tp_viewCD.SuspendLayout();
             panel_searchSlice.SuspendLayout();
@@ -78,9 +76,7 @@
             // panel_searchSlice
             // 
             panel_searchSlice.BackColor = Color.Gainsboro;
-            panel_searchSlice.Controls.Add(txb_price);
-            panel_searchSlice.Controls.Add(label_price);
-            panel_searchSlice.Controls.Add(txb_categery);
+            panel_searchSlice.Controls.Add(cb_category);
             panel_searchSlice.Controls.Add(label_category);
             panel_searchSlice.Controls.Add(txb_cdName);
             panel_searchSlice.Controls.Add(label_nameCD);
@@ -93,29 +89,6 @@
             panel_searchSlice.Size = new Size(305, 796);
             panel_searchSlice.TabIndex = 1;
             // 
-            // txb_price
-            // 
-            txb_price.Location = new Point(104, 218);
-            txb_price.Name = "txb_price";
-            txb_price.Size = new Size(189, 30);
-            txb_price.TabIndex = 9;
-            // 
-            // label_price
-            // 
-            label_price.AutoSize = true;
-            label_price.Location = new Point(10, 221);
-            label_price.Name = "label_price";
-            label_price.Size = new Size(88, 21);
-            label_price.TabIndex = 8;
-            label_price.Text = "Giá Thuê";
-            // 
-            // txb_categery
-            // 
-            txb_categery.Location = new Point(114, 167);
-            txb_categery.Name = "txb_categery";
-            txb_categery.Size = new Size(179, 30);
-            txb_categery.TabIndex = 7;
-            // 
             // label_category
             // 
             label_category.AutoSize = true;
@@ -127,15 +100,15 @@
             // 
             // txb_cdName
             // 
-            txb_cdName.Location = new Point(91, 117);
+            txb_cdName.Location = new Point(111, 117);
             txb_cdName.Name = "txb_cdName";
-            txb_cdName.Size = new Size(202, 30);
+            txb_cdName.Size = new Size(182, 30);
             txb_cdName.TabIndex = 5;
             // 
             // label_nameCD
             // 
             label_nameCD.AutoSize = true;
-            label_nameCD.Location = new Point(10, 120);
+            label_nameCD.Location = new Point(30, 120);
             label_nameCD.Name = "label_nameCD";
             label_nameCD.Size = new Size(75, 21);
             label_nameCD.TabIndex = 4;
@@ -197,6 +170,14 @@
             dtgv_cdView.TabIndex = 0;
             dtgv_cdView.Click += dtgv_cdView_Click;
             // 
+            // cb_category
+            // 
+            cb_category.FormattingEnabled = true;
+            cb_category.Location = new Point(111, 162);
+            cb_category.Name = "cb_category";
+            cb_category.Size = new Size(182, 29);
+            cb_category.TabIndex = 7;
+            // 
             // fCDManager
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -227,12 +208,10 @@
         private Label label_idCategory;
         private TextBox txb_search;
         private Button button_search;
-        private TextBox txb_price;
-        private Label label_price;
-        private TextBox txb_categery;
         private Label label_category;
         private TextBox txb_cdName;
         private Label label_nameCD;
         private DataGridView dtgv_cdView;
+        private ComboBox cb_category;
     }
 }

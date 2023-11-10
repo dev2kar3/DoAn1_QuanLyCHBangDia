@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Hiện chưa dùng lớp này, ban đầu tạo nhưng sau đó dùng billMenu
+
 namespace QuanLyCHChoThueBangDia.DAO
 {
     internal class billDAO
@@ -42,6 +44,23 @@ namespace QuanLyCHChoThueBangDia.DAO
             //Thất bại : -1
 
             return -1;
+        }
+
+        public void insertBill(int idCustomer)
+        {
+            DataProvider.Instance.ExecuteQuery("EXEC USP_insertBill @idCustomer", new object[] {idCustomer});
+        }
+
+        public int getMaxIdBill()
+        {
+            try
+            {
+                return (int)DataProvider.Instance.ExecuteScalar("SELECT MAX(id) FROM dbo.Bill");
+            }
+            catch
+            {
+                return 1;
+            }
         }
     }
 }

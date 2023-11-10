@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//Hiện chưa dùng lớp này, ban đầu tạo nhưng sau đó dùng billMenu
+
+
 namespace QuanLyCHChoThueBangDia.DAO
 {
     internal class billInfoDAO
@@ -46,6 +49,12 @@ namespace QuanLyCHChoThueBangDia.DAO
             //Sau đó các billInfo được add vào listBillInfo
 
             return listBillInfo;
+        }
+
+        public void insertBillInfo(int idBill, int idCd, int quantity)
+        {
+            DataProvider.Instance.ExecuteQuery("EXEC USP_insertBillInfo @idBill , @idCd , @quantity",
+                new object[] {idBill, idCd, quantity}) ;
         }
     }
 }

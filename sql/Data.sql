@@ -204,7 +204,7 @@ BEGIN
 			DECLARE @newQuantity INT = @CdQuantity + @quantity
 			IF (@newQuantity > 0)
 				UPDATE dbo.BillInfo SET quantity = @CdQuantity + @quantity
-					WHERE @idCd = idCd
+					WHERE @idCd = idCd AND dbo.BillInfo.idBill = @idBill AND dbo.BillInfo.idCd = @idCd
 				--Dành cho cả trường hợp âm, nếu thêm thì sẽ bớt đi
 			ELSE	
 				DELETE dbo.BillInfo WHERE @idBill = idBill AND @idCd = idCd
@@ -226,5 +226,85 @@ BEGIN
 			  ) 
 			END
 		END   
+END
+GO	
+
+ALTER PROC USP_getCurrentRemainQuantity
+@idCd int
+AS
+BEGIN	
+	SELECT dbo.CompactDisc.remainCd 
+	FROM dbo.CompactDisc
+	WHERE @idCd = dbo.CompactDisc.id
+END
+GO	
+
+DELETE FROM dbo.Bill WHERE id = 1021
+DELETE FROM dbo.BillInfo WHERE id = 1076
+GO
+
+ALTER PROC USP_getBillIdByCustomerId
+@idCustomer INT
+AS
+BEGIN
+	SELECT dbo.Bill.id 
+	FROM dbo.Bill, dbo.memberInfo
+	WHERE dbo.Bill.idCustomer = dbo.memberInfo.id AND @idCustomer = dbo.Bill.idCustomer
+END
+GO
+
+CREATE PROC USP_deleteAllBillInfoByBillId
+@idBill INT
+AS
+BEGIN	
+	DELETE FROM dbo.BillInfo WHERE dbo.BillInfo.idBill = @idBill
+END
+GO	
+
+CREATE PROC USP_changeStatusToRent
+@idCustomer INT
+AS
+BEGIN
+	UPDATE dbo.memberInfo SET status = 1
+	WHERE id = @idCustomer
+END
+GO
+
+ALTER PROC USP_changeStatusToNoRent
+@idCustomer INT
+AS
+BEGIN
+	UPDATE dbo.memberInfo SET status = 0
+	WHERE id = @idCustomer
+END
+GO	
+
+CREATE PROC USP_changeStatusToNoRent
+@idCustomer INT
+AS
+BEGIN
+	UPDATE dbo.memberInfo SET status = 0
+	WHERE id = @idCustomer
+END
+GO	
+
+CREATE PROC USP_updateRentDay
+@idCustomer INT, @date DATETIME
+AS
+BEGIN
+	UPDATE dbo.Bill SET dateCheckOut = @date
+	WHERE dbo.Bill.idCustomer = @idCustomer
+END
+GO	
+
+CREATE PROC USP_getMemberInfoById
+@idCustomer INT
+AS
+BEGIN	
+	SELECT id AS "ID", accountName AS "Thành Viên", gender AS "Giới Tính",
+	userAddress AS "Địa Chỉ", phoneNumber AS "Số Phone", identify AS "Số CCCD",
+	status AS "Trạng Thái"
+	FROM dbo.memberInfo
+	WHERE id = @idCustomer
 END
 GO	

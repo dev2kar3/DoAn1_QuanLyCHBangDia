@@ -150,6 +150,7 @@
             // nmud_discount
             // 
             nmud_discount.Location = new Point(841, 696);
+            nmud_discount.Maximum = new decimal(new int[] { 30, 0, 0, 0 });
             nmud_discount.Name = "nmud_discount";
             nmud_discount.Size = new Size(129, 31);
             nmud_discount.TabIndex = 18;

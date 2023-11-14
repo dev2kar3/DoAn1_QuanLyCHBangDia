@@ -18,6 +18,8 @@ namespace QuanLyCHChoThueBangDia
     {
         //Set quốc gia để hiển thị đơn vị tiền
         private CultureInfo culture = new CultureInfo("vi-VN");
+        private int currentIdCustomer = 0;
+
 
         public fBill()
         {
@@ -27,7 +29,25 @@ namespace QuanLyCHChoThueBangDia
 
         private void btn_pay_Click(object sender, EventArgs e)
         {
+            if (currentIdCustomer == 0)
+            {
+                return;
+            }
 
+            int idBill = billDAO.Instance.getIdBillByIdCustomer(currentIdCustomer);
+
+            memberInfo currentMem = memberInfoDAO.Instance.getMemberInfoById(currentIdCustomer);
+
+            if (idBill != -1)
+            {
+                if (MessageBox.Show("Bạn có muốn thanh toán cho tài khoản " + currentMem.AccountName + " ?",
+                    "Thông Báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    billDAO.Instance.checkOut(idBill, currentMem.Id);
+                    showRentingMember();
+                    currentIdCustomer = 0;
+                }
+            }
         }
 
         private void showRentingMember()
@@ -37,10 +57,15 @@ namespace QuanLyCHChoThueBangDia
 
         private void dtgv_showAccount_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            object id = dtgv_showAccount.CurrentRow.Cells[0].Value;
-            int idCustomer = Convert.ToInt32(id);
+            if (dtgv_showAccount.CurrentRow == null)
+            {
+                return;
+            }
 
-            showBill(idCustomer);
+            object id = dtgv_showAccount.CurrentRow.Cells[0].Value;
+            currentIdCustomer = Convert.ToInt32(id);
+
+            showBill(currentIdCustomer);
         }
 
         private float lastTotalPrice = 0; // on clicked

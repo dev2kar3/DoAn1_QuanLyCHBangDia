@@ -56,5 +56,11 @@ namespace QuanLyCHChoThueBangDia.DAO
             DataProvider.Instance.ExecuteQuery("EXEC USP_insertBillInfo @idBill , @idCd , @quantity",
                 new object[] {idBill, idCd, quantity}) ;
         }
+
+        public int getCurrentQuantity(int id) // id CD
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC USP_getCurrentRemainQuantity @idCd",
+                new object[] { id });
+        }
     }
 }

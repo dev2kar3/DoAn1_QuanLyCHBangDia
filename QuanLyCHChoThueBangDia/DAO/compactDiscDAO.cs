@@ -37,6 +37,25 @@ namespace QuanLyCHChoThueBangDia.DAO
             foreach (DataRow row in data.Rows) 
             {
                 compactDisc cd = new compactDisc(row);  
+                //Tại sao có thể khởi tạo như này ? 
+                //Vì có hàm tạo của mình đã tạo trong lớp compact disc có tham số datarow
+                list.Add(cd);
+            }
+
+            return list;
+        }
+
+        public List<compactDisc> getAllCompactDisc()
+        {
+            List<compactDisc> list = new List<compactDisc>();
+
+            string query = "SELECT * FROM dbo.CompactDisc";
+
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
+
+            foreach(DataRow row in data.Rows)
+            {
+                compactDisc cd = new compactDisc(row);
                 list.Add(cd);
             }
 

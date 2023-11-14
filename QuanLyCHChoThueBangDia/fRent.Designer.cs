@@ -57,6 +57,8 @@
             dp_toDate = new DateTimePicker();
             label7 = new Label();
             label8 = new Label();
+            label9 = new Label();
+            txb_totalDeposit = new TextBox();
             ((System.ComponentModel.ISupportInitialize)nud_quantity).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dtgv_showMemberInfo).BeginInit();
             SuspendLayout();
@@ -64,7 +66,7 @@
             // btn_rent
             // 
             btn_rent.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_rent.Location = new Point(1577, 774);
+            btn_rent.Location = new Point(1659, 810);
             btn_rent.Name = "btn_rent";
             btn_rent.Size = new Size(179, 66);
             btn_rent.TabIndex = 22;
@@ -122,8 +124,8 @@
             // nud_quantity
             // 
             nud_quantity.Location = new Point(1781, 64);
-            nud_quantity.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
-            nud_quantity.Minimum = new decimal(new int[] { 5, 0, 0, int.MinValue });
+            nud_quantity.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            nud_quantity.Minimum = new decimal(new int[] { 10, 0, 0, int.MinValue });
             nud_quantity.Name = "nud_quantity";
             nud_quantity.Size = new Size(78, 31);
             nud_quantity.TabIndex = 29;
@@ -264,23 +266,25 @@
             // 
             // dp_fromDate
             // 
-            dp_fromDate.Location = new Point(1149, 750);
+            dp_fromDate.Location = new Point(1066, 751);
             dp_fromDate.Name = "dp_fromDate";
             dp_fromDate.Size = new Size(300, 31);
             dp_fromDate.TabIndex = 39;
+            dp_fromDate.ValueChanged += dp_fromDate_ValueChanged;
             // 
             // dp_toDate
             // 
-            dp_toDate.Location = new Point(1149, 809);
+            dp_toDate.Location = new Point(1066, 810);
             dp_toDate.Name = "dp_toDate";
             dp_toDate.Size = new Size(300, 31);
             dp_toDate.TabIndex = 40;
+            dp_toDate.ValueChanged += dp_toDate_ValueChanged;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(1041, 813);
+            label7.Location = new Point(958, 814);
             label7.Name = "label7";
             label7.Size = new Size(103, 23);
             label7.TabIndex = 42;
@@ -290,17 +294,37 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            label8.Location = new Point(1017, 750);
+            label8.Location = new Point(934, 751);
             label8.Name = "label8";
             label8.Size = new Size(127, 23);
             label8.TabIndex = 41;
             label8.Text = "Ngày Mượn :";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Century Gothic", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            label9.Location = new Point(1460, 731);
+            label9.Name = "label9";
+            label9.Size = new Size(107, 23);
+            label9.TabIndex = 43;
+            label9.Text = "Tổng Cọc :";
+            // 
+            // txb_totalDeposit
+            // 
+            txb_totalDeposit.Location = new Point(1573, 727);
+            txb_totalDeposit.Name = "txb_totalDeposit";
+            txb_totalDeposit.ReadOnly = true;
+            txb_totalDeposit.Size = new Size(174, 31);
+            txb_totalDeposit.TabIndex = 44;
             // 
             // fRent
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1871, 928);
+            Controls.Add(txb_totalDeposit);
+            Controls.Add(label9);
             Controls.Add(label7);
             Controls.Add(label8);
             Controls.Add(dp_toDate);
@@ -325,6 +349,7 @@
             Name = "fRent";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Thuê Đĩa";
+            FormClosed += fRent_FormClosed;
             ((System.ComponentModel.ISupportInitialize)nud_quantity).EndInit();
             ((System.ComponentModel.ISupportInitialize)dtgv_showMemberInfo).EndInit();
             ResumeLayout(false);
@@ -360,5 +385,7 @@
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
         private ColumnHeader columnHeader8;
+        private Label label9;
+        private TextBox txb_totalDeposit;
     }
 }

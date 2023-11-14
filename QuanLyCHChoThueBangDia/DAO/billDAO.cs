@@ -62,5 +62,26 @@ namespace QuanLyCHChoThueBangDia.DAO
                 return 1;
             }
         }
+
+        public int getIdBillByIdCustomer(int id)
+        {
+            return (int)DataProvider.Instance.ExecuteScalar("EXEC dbo.USP_getBillIdByCustomerId @idCustomer = " + id);
+        }
+
+        public void deleteAllBillInfoByIdBill(int idBill)
+        {
+            DataProvider.Instance.ExecuteQuery("EXEC USP_deleteAllBillInfoByBillId @idBill",
+                new object[] { idBill });
+        }
+
+
+        public void checkOut(int idBill, int idCustomer) //idBill
+        {
+            DataProvider.Instance.ExecuteQuery("EXEC USP_deleteAllBillInfoByBillId @idBill = " + idBill);
+
+            DataProvider.Instance.ExecuteQuery("EXEC USP_changeStatusToNoRent @idCustomer = " + idCustomer);
+
+            DataProvider.Instance.ExecuteQuery("DELETE dbo.Bill WHERE id = " + idBill);
+        }
     }
 }

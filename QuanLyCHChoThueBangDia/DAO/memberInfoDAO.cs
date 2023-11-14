@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyCHChoThueBangDia.DTO;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -29,6 +30,16 @@ namespace QuanLyCHChoThueBangDia.DAO
             string query = "EXEC dbo.USP_getMemberInfo";
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
             return data;
+        }
+
+        public memberInfo getMemberInfoById(int id)
+        {
+            DataTable data = 
+                DataProvider.Instance.ExecuteQuery("EXEC dbo.USP_getMemberInfoById @idCustomer = " + id);
+
+            memberInfo mem = new memberInfo(data.Rows[0]);
+
+            return mem;
         }
     }
 }

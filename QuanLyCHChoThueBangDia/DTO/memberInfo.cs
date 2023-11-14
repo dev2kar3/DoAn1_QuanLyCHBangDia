@@ -35,9 +35,9 @@ namespace QuanLyCHChoThueBangDia.DTO
             this.Id = (int)row["ID"];
             this.AccountName = row["Thành Viên"].ToString();
             this.Gender = row["Giới Tính"].ToString();
-            this.PhoneNumber = (BigInteger)row["Số Phone"];
+            this.PhoneNumber = new BigInteger((long)row["Số Phone"]);
             this.UserAddress = row["Địa Chỉ"].ToString();
-            this.Identify = (BigInteger)row["Số CCCD"];
+            this.Identify = new BigInteger((long)row["Số CCCD"]);
             this.Status = (int)row["Trạng Thái"];
         }
 

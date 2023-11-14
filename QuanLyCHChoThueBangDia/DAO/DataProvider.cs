@@ -137,6 +137,6 @@ namespace QuanLyCHChoThueBangDia.DAO
             }
 
             return data;
-        } // Trả ra cột có số kết quả 
+        } // Dùng khi lấy kết quả là số 
     }
 }

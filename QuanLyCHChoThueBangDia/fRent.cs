@@ -19,6 +19,10 @@ namespace QuanLyCHChoThueBangDia
     {
         //Set quốc gia để hiển thị đơn vị tiền
         private CultureInfo culture = new CultureInfo("vi-VN");
+        private int currentIDCustomer = 0;
+        List<compactDisc> listCD_canChange = compactDiscDAO.Instance.getAllCompactDisc();
+        List<compactDisc> listCD_origin = compactDiscDAO.Instance.getAllCompactDisc();
+        List<int> listIdCustomerForClean = new List<int>();
 
         public fRent()
         {
@@ -40,7 +44,6 @@ namespace QuanLyCHChoThueBangDia
             currentIDCustomer = idCustomer;
             showRent(idCustomer);
         }
-        private int currentIDCustomer = 0;
 
         public void showRent(int id)
         {
@@ -57,12 +60,16 @@ namespace QuanLyCHChoThueBangDia
                 lsvItem.SubItems.Add(item.Note.ToString());
                 lsvItem.SubItems.Add(item.RentalPrice.ToString());
                 lsvItem.SubItems.Add(item.Quantity.ToString());
-                lsvItem.SubItems.Add(item.DateCheckIn.ToString());
-                lsvItem.SubItems.Add(item.DateCheckOut.ToString());
+                item.DateCheckIn = dp_fromDate.Value;
+                lsvItem.SubItems.Add(item.DateCheckIn.ToString("MM/dd/yyyy"));
+                item.DateCheckOut = dp_toDate.Value;
+                lsvItem.SubItems.Add(item.DateCheckOut.ToString("MM/dd/yyyy"));
                 lsvItem.SubItems.Add(item.DepositPrice.ToString());
 
                 totalDeposit += item.DepositPrice;
                 countCdTotalQuantity += item.Quantity;
+
+                txb_totalDeposit.Text = totalDeposit.ToString();
 
                 liv_listRentCD.Items.Add(lsvItem);
             }
@@ -103,27 +110,169 @@ namespace QuanLyCHChoThueBangDia
 
         private void btn_addCD_Click(object sender, EventArgs e)
         {
+            int quantity = (int)nud_quantity.Value;
+
+            if (quantity == 0)
+                return;
 
             int idBill = billDAO.Instance.getBillIDByCustomerID(currentIDCustomer);
             int idCd = (cb_nameCD.SelectedItem as compactDisc).Id;
-            int quantity = (int)nud_quantity.Value;
+
+            for (int i = 0; i <= listIdCustomerForClean.Count; i++)
+            {
+                if (listIdCustomerForClean.Count == 0)
+                {
+                    listIdCustomerForClean.Add(currentIDCustomer);
+                    break;
+                }
+
+                if (listIdCustomerForClean.Exists(item => item == currentIDCustomer))
+                {
+                    continue;
+                }
+                else
+                {
+                    listIdCustomerForClean.Add(currentIDCustomer);
+                    break;
+                }
+
+            }
+
+            int? cdRemaind = null;
+
+            foreach (compactDisc cd in listCD_canChange)
+            {
+                if (cd.Id == idCd)
+                    cdRemaind = cd.RemainCd;
+            }
 
             if (idBill == -1)
-            {
                 billDAO.Instance.insertBill(currentIDCustomer);
-                billInfoDAO.Instance.insertBillInfo(billDAO.Instance.getMaxIdBill(), idCd, quantity);
+
+
+            if ((cdRemaind - quantity) >= 0 && quantity > 0)
+            {
+                billInfoDAO.Instance.insertBillInfo(billDAO.Instance.getBillIDByCustomerID(currentIDCustomer),
+                    idCd, quantity);
+
+                foreach (compactDisc cd in listCD_canChange)
+                {
+                    if (cd.Id == idCd)
+                    {
+                        cd.RemainCd = (int)cdRemaind - quantity;
+                        break;
+                    }
+                }
+            }
+            else if (quantity < 0)
+            {
+                int originRemaindCd = 0;
+
+                foreach (compactDisc cd in listCD_origin)
+                {
+                    if (idCd == cd.Id)
+                        originRemaindCd = cd.RemainCd;
+                }
+
+                if (cdRemaind - quantity > originRemaindCd)
+                {
+                    MessageBox.Show("Không thể Giảm Đĩa!", "Thông Báo");
+                }
+                else
+                {
+                    billInfoDAO.Instance.insertBillInfo(billDAO.Instance.getBillIDByCustomerID(currentIDCustomer),
+                        idCd, quantity);
+
+                    foreach (compactDisc cd in listCD_canChange)
+                    {
+                        if (cd.Id == idCd)
+                            cd.RemainCd = (int)cdRemaind - quantity;
+                    }
+                }
             }
             else
             {
-                billInfoDAO.Instance.insertBillInfo(billDAO.Instance.getMaxIdBill(), idCd, quantity);
+                MessageBox.Show("Không thể thêm vì không còn đủ đĩa!", "Thông Báo");
             }
 
             showRent(currentIDCustomer);
         }
 
+        private void dp_fromDate_ValueChanged(object sender, EventArgs e)
+        {
+            showRent(currentIDCustomer);
+        }
+
+        private void dp_toDate_ValueChanged(object sender, EventArgs e)
+        {
+            showRent(currentIDCustomer);
+        }
+
+        private void fRent_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            List<int> listIdBill = new List<int>();
+
+            foreach (int item in listIdCustomerForClean)
+            {
+                listIdBill.Add(billDAO.Instance.getIdBillByIdCustomer(item));
+            }
+
+            foreach (int item in listIdBill)
+            {
+                billDAO.Instance.deleteAllBillInfoByIdBill(item);
+            }
+
+            foreach (int item in listIdBill)
+            {
+                DataProvider.Instance.ExecuteQuery("DELETE FROM dbo.Bill WHERE id = " + item);
+            }
+        }
+
         private void btn_rent_Click(object sender, EventArgs e)
         {
+            if (currentIDCustomer == 0)
+            {
+                return;
+            }
 
+            List<int> idxToRemove = new List<int>();
+
+            //Check xem người dùng đã thực sự thêm đĩa nào chưa
+            int count = 
+                (int)DataProvider.Instance.ExecuteScalar("SELECT COUNT(*) FROM dbo.Bill WHERE idCustomer = " + currentIDCustomer);
+            bool isBillExist = count > 0 ? true : false;
+
+            if (!isBillExist)
+            {
+                MessageBox.Show("Khách Hàng Chưa Chọn Đĩa Nào!", "Thông Báo!");
+                return; 
+            }
+
+            foreach (int item in listIdCustomerForClean)
+            {
+                if (listIdCustomerForClean.Exists(item => item == currentIDCustomer))
+                {
+                    idxToRemove.Add(item);
+                }
+            }
+
+            foreach (int item in idxToRemove)
+            {
+                if (listIdCustomerForClean.Exists(item => item == currentIDCustomer))
+                {
+                    listIdCustomerForClean.Remove(item);
+                }
+            }
+
+            DataProvider.Instance.ExecuteQuery("EXEC USP_changeStatusToRent @idCustomer", 
+                new object[] { currentIDCustomer });
+
+            DataProvider.Instance.ExecuteQuery("EXEC USP_updateRentDay @idCustomer , @date",
+                new object[] { currentIDCustomer, dp_toDate.Value});
+
+            MessageBox.Show("Thuê Thành Công!", "Thông Báo");
+
+            loadMemberInfoForRent();
         }
     }
 }

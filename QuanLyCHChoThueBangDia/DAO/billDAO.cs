@@ -75,13 +75,35 @@ namespace QuanLyCHChoThueBangDia.DAO
         }
 
 
-        public void checkOut(int idBill, int idCustomer) //idBill
+        public void checkOut(int idBill, int idCustomer, float revenue, int discount) //idBill
         {
+            DataTable data = 
+                DataProvider.Instance.ExecuteQuery("SELECT * FROM dbo.Bill WHERE id = " + idBill);
+
+            Bill bill = new Bill(data.Rows[0]);
+
+            data = DataProvider.Instance.ExecuteQuery("SELECT id AS ID, accountName AS \"Thành Viên\"," +
+                "gender AS \"Giới Tính\", phoneNumber AS \"Số Phone\",userAddress AS \"Địa Chỉ\"," +
+                " identify AS \"Số CCCD\", status AS \"Trạng Thái\" FROM dbo.memberInfo" + 
+                " WHERE id = " + idCustomer);
+
+            memberInfo mem = new memberInfo(data.Rows[0]);
+
+            DataProvider.Instance.ExecuteQuery("EXEC USP_insertRevenue @name , @revenue , @in , @out , @discount",
+                new object[] { mem.AccountName, revenue, bill.DateCheckIn, bill.DateCheckOut, discount});
+
+
             DataProvider.Instance.ExecuteQuery("EXEC USP_deleteAllBillInfoByBillId @idBill = " + idBill);
 
             DataProvider.Instance.ExecuteQuery("EXEC USP_changeStatusToNoRent @idCustomer = " + idCustomer);
 
             DataProvider.Instance.ExecuteQuery("DELETE dbo.Bill WHERE id = " + idBill);
+        }
+
+        public DataTable getRevenueByDate(DateTime dateCheckIn, DateTime dateCheckOut)
+        {
+            return DataProvider.Instance.ExecuteQuery("EXEC USP_getRevenueByDate @In , @Out", 
+                new object[] { dateCheckIn, dateCheckOut });
         }
     }
 }

@@ -10,6 +10,7 @@ namespace QuanLyCHChoThueBangDia.DTO
     internal class BillInfo
     {
         //Những lớp như này là giả lập đối tượng để nhận thông tin khi lấy kết quả query từ sql
+        //Gọi là model
 
         public BillInfo(int id, int billid, int cdid, int quantity)
         {

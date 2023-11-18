@@ -270,6 +270,25 @@ namespace QuanLyCHChoThueBangDia
             DataProvider.Instance.ExecuteQuery("EXEC USP_updateRentDay @idCustomer , @date",
                 new object[] { currentIDCustomer, dp_toDate.Value});
 
+            int idBill = billDAO.Instance.getIdBillByIdCustomer(currentIDCustomer);
+
+            List<BillInfo> billinfo = billInfoDAO.Instance.getListBillInfo(idBill);
+
+            List<compactDisc> cd = compactDiscDAO.Instance.getAllCompactDisc();
+
+            foreach (BillInfo billin4 in billinfo)
+            {
+                foreach (compactDisc disc in cd)
+                {
+                    if (disc.Id == billin4.CdId)
+                    {
+                        DataProvider.Instance.ExecuteQuery("EXEC USP_updateQuantityForRent @idCd , @quantity",
+                            new object[] {disc.Id, billin4.Quantity});
+                        break;
+                    }
+                }
+            }
+
             MessageBox.Show("Thuê Thành Công!", "Thông Báo");
 
             loadMemberInfoForRent();

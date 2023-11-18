@@ -43,9 +43,42 @@ namespace QuanLyCHChoThueBangDia
                 if (MessageBox.Show("Bạn có muốn thanh toán cho tài khoản " + currentMem.AccountName + " ?",
                     "Thông Báo", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    billDAO.Instance.checkOut(idBill, currentMem.Id);
+                    float revenue = 0;
+                    string totalPriceFormated = txb_totalPrice.Text.Replace(" ₫", "");
+                    totalPriceFormated = totalPriceFormated.Replace(".", "");
+
+                    string receiveFormated = txb_receive.Text.Replace(" ₫", "");
+                    receiveFormated = receiveFormated.Replace(".", "");
+
+                    if (txb_receive.Text.ToString().Equals("0"))
+                    {
+                        revenue = (float)Convert.ToDouble(totalPriceFormated);
+                    }
+                    else if (txb_payback.Text.ToString().Equals("0"))
+                    {
+                        revenue = (float)Convert.ToDouble(receiveFormated);
+                    }
+
+                    List<compactDisc> cd = compactDiscDAO.Instance.getAllCompactDisc();
+                    List<BillInfo> billinfo = billInfoDAO.Instance.getListBillInfo(idBill);
+
+                    foreach (BillInfo billin4 in billinfo)
+                    {
+                        foreach (compactDisc disc in cd)
+                        {
+                            if (disc.Id == billin4.CdId)
+                            {
+                                DataProvider.Instance.ExecuteQuery("EXEC USP_updateRemainCdAfterPay @idCd , @sl",
+                                    new object[] {disc.Id, billin4.Quantity});
+                                break;
+                            }
+                        }
+                    }
+
+                    billDAO.Instance.checkOut(idBill, currentMem.Id, revenue, (int)nmud_discount.Value);
                     showRentingMember();
                     currentIdCustomer = 0;
+                    MessageBox.Show("Thanh toán thành công!", "Thông báo");
                 }
             }
         }
@@ -113,8 +146,8 @@ namespace QuanLyCHChoThueBangDia
 
         public void calculatePaymentForBill()
         {
-            float tempTotalPrice = lastTotalPrice;
-            float discount = 0;
+            float tempTotalPrice = lastTotalPrice;  //Tong Tien thue dia
+            float discount = 0;                     // So tien giam gia
 
             if (nmud_discount.Value > 0)
             {
@@ -126,17 +159,20 @@ namespace QuanLyCHChoThueBangDia
             {
                 txb_receive.Text = (tempTotalPrice - lastDeposit - discount).ToString("c", culture);
                 txb_payback.Text = "0";
+                txb_totalPrice.Text = (tempTotalPrice - discount).ToString("c", culture);
 
                 if (tempTotalPrice - lastDeposit - discount < 0)
                 {
                     txb_receive.Text = "0";
                     txb_payback.Text = ((tempTotalPrice - lastDeposit - discount) * (-1)).ToString("c", culture);
+                    txb_totalPrice.Text = (tempTotalPrice - discount).ToString("c", culture);
                 }
             }
             else if (tempTotalPrice < lastDeposit)
             {
                 txb_receive.Text = "0";
                 txb_payback.Text = ((lastDeposit - tempTotalPrice) + discount).ToString("c", culture);
+                txb_totalPrice.Text = (tempTotalPrice - discount).ToString("c", culture);
             }
         }
 

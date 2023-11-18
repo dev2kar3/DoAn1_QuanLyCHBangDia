@@ -48,6 +48,7 @@
             // 
             // panel_register
             // 
+            panel_register.BackColor = SystemColors.ControlLight;
             panel_register.Controls.Add(cb_gender);
             panel_register.Controls.Add(btn_register);
             panel_register.Controls.Add(txb_identify);
@@ -95,20 +96,20 @@
             // label_identify
             // 
             label_identify.AutoSize = true;
-            label_identify.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label_identify.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_identify.Location = new Point(27, 300);
             label_identify.Name = "label_identify";
-            label_identify.Size = new Size(118, 28);
+            label_identify.Size = new Size(124, 30);
             label_identify.TabIndex = 10;
             label_identify.Text = "Số CCCD";
             // 
             // label_gender
             // 
             label_gender.AutoSize = true;
-            label_gender.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label_gender.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_gender.Location = new Point(425, 198);
             label_gender.Name = "label_gender";
-            label_gender.Size = new Size(108, 28);
+            label_gender.Size = new Size(114, 30);
             label_gender.TabIndex = 8;
             label_gender.Text = "Giới Tính";
             // 
@@ -122,10 +123,10 @@
             // label_address
             // 
             label_address.AutoSize = true;
-            label_address.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label_address.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_address.Location = new Point(425, 97);
             label_address.Name = "label_address";
-            label_address.Size = new Size(98, 28);
+            label_address.Size = new Size(102, 30);
             label_address.TabIndex = 6;
             label_address.Text = "Địa Chỉ";
             // 
@@ -139,10 +140,10 @@
             // label_phoneNumber
             // 
             label_phoneNumber.AutoSize = true;
-            label_phoneNumber.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label_phoneNumber.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_phoneNumber.Location = new Point(27, 198);
             label_phoneNumber.Name = "label_phoneNumber";
-            label_phoneNumber.Size = new Size(160, 28);
+            label_phoneNumber.Size = new Size(168, 30);
             label_phoneNumber.TabIndex = 4;
             label_phoneNumber.Text = "Số Điện Thoại";
             // 
@@ -166,10 +167,10 @@
             // label_name
             // 
             label_name.AutoSize = true;
-            label_name.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label_name.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_name.Location = new Point(21, 97);
             label_name.Name = "label_name";
-            label_name.Size = new Size(87, 28);
+            label_name.Size = new Size(92, 30);
             label_name.TabIndex = 0;
             label_name.Text = "Họ Tên";
             // 
@@ -187,7 +188,7 @@
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.ActiveCaption;
+            BackColor = SystemColors.ControlLight;
             ClientSize = new Size(819, 443);
             Controls.Add(panel_register);
             Icon = (Icon)resources.GetObject("$this.Icon");

@@ -48,7 +48,7 @@
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1056, 601);
+            panel1.Size = new Size(820, 601);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -58,28 +58,29 @@
             panel3.Controls.Add(dtpkFromDate);
             panel3.Location = new Point(3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1050, 70);
+            panel3.Size = new Size(816, 70);
             panel3.TabIndex = 1;
             // 
             // btnView
             // 
-            btnView.Location = new Point(476, 13);
+            btnView.Location = new Point(354, 13);
             btnView.Name = "btnView";
             btnView.Size = new Size(116, 48);
             btnView.TabIndex = 2;
             btnView.Text = "Thống Kê";
             btnView.UseVisualStyleBackColor = true;
+            btnView.Click += btnView_Click;
             // 
             // dtpkToDate
             // 
-            dtpkToDate.Location = new Point(704, 20);
+            dtpkToDate.Location = new Point(516, 20);
             dtpkToDate.Name = "dtpkToDate";
             dtpkToDate.Size = new Size(300, 31);
             dtpkToDate.TabIndex = 1;
             // 
             // dtpkFromDate
             // 
-            dtpkFromDate.Location = new Point(43, 20);
+            dtpkFromDate.Location = new Point(3, 20);
             dtpkFromDate.Name = "dtpkFromDate";
             dtpkFromDate.Size = new Size(300, 31);
             dtpkFromDate.TabIndex = 0;
@@ -89,29 +90,31 @@
             panel2.Controls.Add(dtgvRevenue);
             panel2.Location = new Point(3, 79);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1050, 519);
+            panel2.Size = new Size(816, 519);
             panel2.TabIndex = 0;
             // 
             // dtgvRevenue
             // 
+            dtgvRevenue.AllowUserToAddRows = false;
+            dtgvRevenue.AllowUserToDeleteRows = false;
+            dtgvRevenue.AllowUserToResizeColumns = false;
+            dtgvRevenue.AllowUserToResizeRows = false;
             dtgvRevenue.BackgroundColor = SystemColors.ControlLight;
             dtgvRevenue.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dtgvRevenue.Location = new Point(3, 3);
             dtgvRevenue.Name = "dtgvRevenue";
             dtgvRevenue.RowHeadersWidth = 62;
             dtgvRevenue.RowTemplate.Height = 33;
-            dtgvRevenue.Size = new Size(1047, 513);
+            dtgvRevenue.Size = new Size(810, 513);
             dtgvRevenue.TabIndex = 0;
             // 
             // fRevenue
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1080, 625);
+            ClientSize = new Size(844, 625);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(1102, 681);
-            MinimumSize = new Size(1102, 681);
             Name = "fRevenue";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Doanh Thu";

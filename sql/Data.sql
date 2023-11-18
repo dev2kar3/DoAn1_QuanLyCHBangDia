@@ -37,8 +37,10 @@ create table CompactDisc -- Thông tin đĩa
 	id int identity primary key,
 	cdName nvarchar (100) not null,
 	rentalPrice float not null default 0,
-	quantity int not null,										
-	remainCd int not null,
+	quantity int not null,											-- Số đĩa hiện đang có trong cửa hàng
+																		-- (Không kể đang thuê và chưa thuê)
+																		-- Chắc déo cần đụng đến dcm
+	remainCd int not null,											-- Số đĩa còn lại để cho thuê
 	productionComp nvarchar (300) not null,
 	note nvarchar (300) not null,									-- Mới || Cũ || Hỏng
 	idCategory int not null,
@@ -81,6 +83,17 @@ GO
 -- Sau đó chuyển sang form thanh toán, nhấn vào là hiện lên listview đĩa tài khoản đó đang thuê
 -- Sau đó thanh toán thì xóa đi là xong
 
+CREATE TABLE revenueTB
+(
+	id INT IDENTITY PRIMARY KEY,
+	nameMember NVARCHAR(100) NOT NULL,
+	revenue FLOAT NOT NULL DEFAULT 0,
+	dateCheckIn DATE NOT NULL,
+	dateCheckOut DATE NOT NULL,
+	discount INT NOT NULL
+)
+GO	
+
 CREATE PROC USP_getAccountByUserName
 @userName NVARCHAR(100)
 AS
@@ -118,11 +131,11 @@ BEGIN
 END
 GO	
 
-CREATE PROC dbo.USP_getCdInfo
+ALTER PROC dbo.USP_getCdInfo
 AS
 BEGIN
 	SELECT dbo.CompactDisc.id AS ID, cdName AS "Tên Đĩa", rentalPrice AS "Giá Thuê",
-	quantity AS "Số Lượng", productionComp AS "Nhà SX",
+	remainCd AS "Số Lượng", productionComp AS "Nhà SX",
 	note AS "Ghi Chú", dbo.CompactDiscCategory.cateName AS "Thể Loại"
 	FROM dbo.CompactDisc, dbo.CompactDiscCategory
 	WHERE dbo.CompactDisc.idCategory = dbo.CompactDiscCategory.id
@@ -307,4 +320,56 @@ BEGIN
 	FROM dbo.memberInfo
 	WHERE id = @idCustomer
 END
-GO	
+GO
+
+CREATE PROC USP_insertRevenue
+@name NVARCHAR(100), @revenue FLOAT, @dateIn DATETIME, @dateOut DATETIME, @discount INT
+AS
+BEGIN
+	INSERT INTO dbo.revenueTB
+	(
+	    nameMember,
+	    revenue,
+	    dateCheckIn,
+	    dateCheckOut,
+	    discount
+	)
+	VALUES
+	(   @name,       -- nameMember - nvarchar(100)
+	    @revenue,   -- revenue - float
+	    @dateIn, -- dateCheckIn - date
+	    @dateOut, -- dateCheckOut - date
+	    @discount          -- discount - int
+	    )
+END
+GO                  
+
+CREATE PROC USP_getRevenueByDate
+@checkIn DATE, @checkOut DATE
+AS
+BEGIN
+	SELECT nameMember AS "Thành Viên", revenue AS "Doanh Thu", 
+		dateCheckIn AS "Ngày Mượn", dateCheckOut AS "Ngày Trả",
+		discount AS "Giảm Giá"
+	FROM dbo.revenueTB
+	WHERE dateCheckIn >= @checkIn AND dateCheckOut <= @checkOut
+END
+GO
+
+ALTER PROC USP_updateQuantityForRent
+@idCd INT, @quantity INT --quantity này là ở billinfo
+AS
+BEGIN
+	UPDATE dbo.CompactDisc SET dbo.CompactDisc.remainCd = dbo.CompactDisc.remainCd - @quantity
+	WHERE dbo.CompactDisc.id = @idCd
+END
+GO
+
+CREATE PROC USP_updateRemainCdAfterPay
+@idCd INT, @quantity INT --quantity này ở billinfo
+AS
+BEGIN
+	UPDATE dbo.CompactDisc SET	dbo.CompactDisc.remainCd = dbo.CompactDisc.remainCd + @quantity
+	WHERE dbo.CompactDisc.id = @idCd
+END
+GO
